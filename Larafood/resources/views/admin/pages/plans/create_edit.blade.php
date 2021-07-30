@@ -3,13 +3,22 @@
 @section('title', 'Cadastrar Novo Plano')
 
 @section('content_header')
-    <h1>Cadastrar Novo Plano</h1>
+    @if(isset($plan))
+        <h1>Editar Plano: {{$plan->name}}</h1>
+    @else
+        <h1>Cadastrar Novo Plano</h1>
+    @endif
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{route('plans.store')}}" class="form" method="POST">
+            @if(isset($plan))
+            <form action="{{route('plans.update',$plan->id)}}" class="form" method="POST">
+                @method('put')
+            @else
+             <form action="{{route('plans.store')}}" class="form" method="POST">
+            @endif
                 @csrf
                 <div class="form-group">
                     <label>Nome:</label>

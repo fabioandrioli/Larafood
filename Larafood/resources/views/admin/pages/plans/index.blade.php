@@ -12,7 +12,7 @@
             <form class="form form-inline" method="POST" action="{{route('plans.search')}}">
                 @csrf
                 <input type="text" name="filter" value="{{$filters['filter'] ?? ''}}" placeholder="Nome" class="form-control">
-                <button type="submit" class="btn btn-dark"> <i class="fa fa-glass"></i> Filtrar</button>
+                <button type="submit" class="btn btn-dark"><i class="fa fa-glass"></i> Filtrar</button>
             </form>
         </div>
         <div class="card-body">
@@ -31,6 +31,7 @@
                         <td>{{$plan->name}}</td>
                         <td>R$ {{number_format($plan->price, 2, ',','.')}}</td>
                         <td style="width=50px">
+                            <a href="{{route('plans.edit',$plan->url)}}" class="btn btn-warning">EDITAR</a>
                             <a href="{{route('plans.show',$plan->url)}}" class="btn btn-warning">VER</a>
                         </td>
                     </tr>

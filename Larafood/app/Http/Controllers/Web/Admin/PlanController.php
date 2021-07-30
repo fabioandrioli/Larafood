@@ -41,8 +41,8 @@ class PlanController extends Controller
         return view('admin.pages.plans.show',compact('plan'));
     }
 
-    public function edit($id){
-        $plan = $this->repository->find($id);
+    public function edit($url){
+        $plan = $this->repository->where('url',$url)->first();
         if(!$plan)
             return redirect()->back();
         return view('admin.pages.plans.create_edit',compact('plan'));
@@ -51,12 +51,13 @@ class PlanController extends Controller
 
     public function update($id, Request $request){
         $plan = $this->repository->find($id);
+
         $data = $request->all();
         if(!$plan)
             return redirect()->back();
 
         $data['url'] = Str::kebab($data['name']);
-        $this->repository->update($data);
+        $plan->update($data);
         return redirect()->route('plans.index');
     }
 
