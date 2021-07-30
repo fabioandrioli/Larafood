@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('admin/plan',PlanController::class);
+Route::resource('admin/plans',PlanController::class);
+Route::any('admin/plans/search',[PlanController::class,'search'])->name('plans.search');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
