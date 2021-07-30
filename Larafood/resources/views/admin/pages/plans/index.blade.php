@@ -3,7 +3,7 @@
 @section('title', 'Planos')
 
 @section('content_header')
-    <h1>Planos <a href="{{route('plans.create')}}" class="btn btn-dark">ADD</a> </h1>
+    <h1>Planos <a href="{{route('plans.create')}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')
@@ -11,8 +11,8 @@
         <div class="card-header">
             <form class="form form-inline" method="POST" action="{{route('plans.search')}}">
                 @csrf
-                <input type="text" name="filter" placeholder="Nome" class="form-control">
-                <button type="submit" class="btn btn-dark">Filtrar</button>
+                <input type="text" name="filter" value="{{$filters['filter'] ?? ''}}" placeholder="Nome" class="form-control">
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-glass"></i> Filtrar</button>
             </form>
         </div>
         <div class="card-body">
@@ -43,7 +43,12 @@
             </table>
         </div>
         <div class="card-footer">
-            {!! $plans->links("pagination::bootstrap-4") !!}
+            @if(isset($filters))
+                {!! $plans->appends($filters)->links("pagination::bootstrap-4") !!}
+             @else
+                {!! $plans->links("pagination::bootstrap-4") !!}
+            @endif
+
         </div>
     </div>
 @stop
