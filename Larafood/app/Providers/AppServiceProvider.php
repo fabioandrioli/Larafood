@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Plan;
 use Illuminate\Support\ServiceProvider;
-
+use App\Observers\Plan\PlanObserver;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Plan::observe(PlanObserver::class);
     }
 }
