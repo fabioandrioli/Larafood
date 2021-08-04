@@ -13,6 +13,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @include('admin.includes.alerts')
             @if(isset($plan))
             <form action="{{route('plans.update',$plan->id)}}" class="form" method="POST">
                 @method('put')
