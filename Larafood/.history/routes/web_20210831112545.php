@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Admin\{
     PlanController,
-    DetailPlanController,
 };
 
 /*
@@ -29,7 +28,6 @@ Route::group(['prefix' => 'admin'], function(){
     **/
     Route::resource('/plans',PlanController::class);
     Route::any('/plans/search',[PlanController::class,'search'])->name('plans.search');
-    Route::get('/plans/{url}/details',[DetailPlanController::class,'index'])->name('details.plans.index');
 });
 
 

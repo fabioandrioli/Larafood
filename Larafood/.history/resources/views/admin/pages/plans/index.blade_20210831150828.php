@@ -31,9 +31,9 @@
                         <td>{{$plan->name}}</td>
                         <td>R$ {{number_format($plan->price, 2, ',','.')}}</td>
                         <td style="width=10px">
-                            <a href="{{route('details.plans.index',$plan->url)}}" class="btn btn-primary">Detalhes</a>
-                            <a href="{{route('plans.edit',$plan->url)}}" class="btn btn-info">Editar</a>
-                            <a href="{{route('plans.show',$plan->url)}}" class="btn btn-warning">Ver</a>
+                            <a href="{{route('details.plans.index',$plan->url)}}" class="btn btn-warning">DETALHES</a>
+                            <a href="{{route('plans.edit',$plan->url)}}" class="btn btn-warning">EDITAR</a>
+                            <a href="{{route('plans.show',$plan->url)}}" class="btn btn-warning">VER</a>
                         </td>
                     </tr>
                     @empty

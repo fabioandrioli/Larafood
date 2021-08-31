@@ -1,20 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Planos')
+@section('title', 'Detalhes do Plano {$plan->name}')
 
 @section('content_header')
-    <h1>Planos <a href="{{route('plans.create')}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Detalhes do Plano {{$plan->name}} <a href="{{route('plans.create')}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <form class="form form-inline" method="POST" action="{{route('plans.search')}}">
-                @csrf
-                <input type="text" name="filter" value="{{$filters['filter'] ?? ''}}" placeholder="Nome" class="form-control">
-                <button type="submit" class="btn btn-dark"><i class="fa fa-glass"></i> Filtrar</button>
-            </form>
-        </div>
+    
         <div class="card-body">
             <table class="table table-condensed">
                 <thead>
@@ -30,10 +24,9 @@
                     <tr>
                         <td>{{$plan->name}}</td>
                         <td>R$ {{number_format($plan->price, 2, ',','.')}}</td>
-                        <td style="width=10px">
-                            <a href="{{route('details.plans.index',$plan->url)}}" class="btn btn-primary">Detalhes</a>
-                            <a href="{{route('plans.edit',$plan->url)}}" class="btn btn-info">Editar</a>
-                            <a href="{{route('plans.show',$plan->url)}}" class="btn btn-warning">Ver</a>
+                        <td style="width=50px">
+                            <a href="{{route('plans.edit',$plan->url)}}" class="btn btn-warning">EDITAR</a>
+                            <a href="{{route('plans.show',$plan->url)}}" class="btn btn-warning">VER</a>
                         </td>
                     </tr>
                     @empty

@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Plan;
 
 class CreateDetailPlansTable extends Migration
 {
@@ -16,9 +15,14 @@ class CreateDetailPlansTable extends Migration
     {
         Schema::create('details_plans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Plan::class);
+            $table->foreignId('plan_id');
             $table->string('name');
             $table->timestamps();
+
+            $table->foreign('plan_id')
+                ->reference('id')
+                ->on('plans')
+                ->onDelete('cascade');
 
         });
     }

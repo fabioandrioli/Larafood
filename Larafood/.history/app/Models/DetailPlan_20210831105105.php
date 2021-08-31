@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailPlan extends Model
 {
-    use HasFactory;
-    protected $table = 'details_plans';
+    use HasFactory
+    protected $table = 'detail_plans';
 
     public function plan(){
         return $this->belongsTo(Plan::class);

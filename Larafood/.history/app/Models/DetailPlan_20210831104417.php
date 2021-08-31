@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailPlan extends Model
 {
-    use HasFactory;
-    protected $table = 'details_plans';
-
-    public function plan(){
-        return $this->belongsTo(Plan::class);
-    }
+    use HasFactory
+    protected $table = 'detail_plans';
 
 }

@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Plan;
 
 class CreateDetailPlansTable extends Migration
 {
@@ -14,12 +13,11 @@ class CreateDetailPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('details_plans', function (Blueprint $table) {
+        Schema::create('detail_plans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Plan::class);
             $table->string('name');
+            $table->unsignedBigInteger('plan_id');
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +28,6 @@ class CreateDetailPlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('details_plans');
+        Schema::dropIfExists('detail_plans');
     }
 }
