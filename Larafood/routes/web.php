@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\Admin\PlanController;
+use App\Http\Controllers\Web\Admin\{
+    PlanController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('admin/plans',PlanController::class);
-Route::any('admin/plans/search',[PlanController::class,'search'])->name('plans.search');
+Route::group(['prefix' => 'admin'], function(){
+    Route::resource('/plans',PlanController::class);
+    Route::any('/plans/search',[PlanController::class,'search'])->name('plans.search');
+});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
