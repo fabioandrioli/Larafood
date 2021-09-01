@@ -16,8 +16,7 @@ class CreateDetailPlansTable extends Migration
     {
         Schema::create('details_plans', function (Blueprint $table) {
             $table->id();
-            //Ao deletar um plano, ele deleta todos os detalhes automaticamente.
-            $table->foreignIdFor(Plan::class)->onDelete('cascade');
+            $table->foreignIdFor(Plan::class)->onDelete('cascade');;
             $table->string('name');
             $table->timestamps();
 
