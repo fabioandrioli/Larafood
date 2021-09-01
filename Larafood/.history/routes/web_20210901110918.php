@@ -36,10 +36,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/plans/{url}/details',[DetailPlanController::class,'index'])->name('details.plan.index');
     Route::get('/plans/{url}/create',[DetailPlanController::class,'create'])->name('details.plan.create');
     Route::post('/plans/{url}/store',[DetailPlanController::class,'store'])->name('details.plan.store');
-    Route::get('/plans/{url}/show/{idDetail}',[DetailPlanController::class,'show'])->name('details.plan.show');
+    Route::get('/plans/{url}/show',[DetailPlanController::class,'show'])->name('details.plan.show');
     Route::get('/plans/{url}/edit/{idDetail}',[DetailPlanController::class,'edit'])->name('details.plan.edit');
-    Route::put('/plans/{url}/update/{idDetail}',[DetailPlanController::class,'update'])->name('details.plan.update');
-    Route::delete('/plans/{url}/destroy/{idDetail}',[DetailPlanController::class,'destroy'])->name('details.plan.destroy');
+    Route::put('/plans/{url}/update',[DetailPlanController::class,'update'])->name('details.plan.update');
+    Route::delete('/plans/{url}/destroy',[DetailPlanController::class,'destroy'])->name('details.plan.destroy');
 });
 
 

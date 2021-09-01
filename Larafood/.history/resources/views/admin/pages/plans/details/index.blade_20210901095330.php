@@ -3,7 +3,7 @@
 @section('title', 'Detalhes do Plano {$plan->name}')
 
 @section('content_header')
-    <h1>Detalhes do Plano {{$plan->name}} <a href="{{route('details.plan.create',$plan->url)}}" class="btn btn-dark">Adicionar detalhe <i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Detalhes do Plano {{$plan->name}} <a href="{{route('details.create',$plan->url)}}" class="btn btn-dark">Adicionar detalhe <i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')
@@ -23,8 +23,8 @@
                     <tr>
                         <td>{{$detail->name}}</td>
                         <td style="width=50px">
-                            <a href="{{route('details.plan.edit',[$plan->url, $detail->id])}}" class="btn btn-warning">Editar</a>
-                            <a href="{{route('details.plan.show',[$plan->url, $detail->id])}}" class="btn btn-warning">Ver</a>
+                            <a href="{{route('details.edit',$plan->url)}}" class="btn btn-warning">EDITAR</a>
+                            <a href="{{route('details.show',$plan->url)}}" class="btn btn-warning">VER</a>
                         </td>
                     </tr>
                     @empty

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Plan\Detail\RequestStoreUpdateDetailPlan;
 use App\Models\DetailPlan;
 use App\Models\Plan;
 
@@ -61,7 +60,7 @@ class DetailPlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestStoreUpdateDetailPlan $request, $urlPlan)
+    public function store(Request $request, $urlPlan)
     {
         if(!$plan = $this->plan->where('url',$urlPlan)->first()){
             return redirect()->back();
@@ -81,18 +80,9 @@ class DetailPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($urlPlan,$idDetail)
+    public function show($id)
     {
-        $plan = $this->plan->where('url',$urlPlan)->first();
-        $detail = $this->repository->where('id',$idDetail)->first();
-        if(!$plan || !$detail){
-            return redirect()->back();
-        }
-
-        return view("admin.pages.plans.details.show",[
-            'plan' => $plan,
-            'detail' => $detail,
-        ]);
+        //
     }
 
     /**
@@ -101,17 +91,14 @@ class DetailPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($urlPlan, $idDetail)
+    public function edit($urlPlan)
     {
-        $plan = $this->plan->where('url',$urlPlan)->first();
-        $detail = $this->repository->where('id',$idDetail)->first();
-        if(!$plan || !$detail){
+        if(!$plan = $this->plan->where('url',$urlPlan)->first()){
             return redirect()->back();
         }
 
         return view("admin.pages.plans.details.create_edit",[
             'plan' => $plan,
-            'detail' => $detail,
         ]);
 
     }
@@ -123,23 +110,9 @@ class DetailPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdateDetailPlan $request, $urlPlan, $idDetail)
+    public function update(Request $request, $id)
     {
-        $plan = $this->plan->where('url',$urlPlan)->first();
-        $detail = $this->repository->where('id',$idDetail)->first();
-        if(!$plan || !$detail){
-            return redirect()->back();
-        }
-
-        // $data = $request->all();
-        // $data['plan_id'] = $plan->id;
-        //dd($request->all());
-        // $this->repository->create($data);
-        //dd($detail);
-        $detail->update($request->all());
-        //dd($plan->url);
-
-        return redirect()->route("details.plan.index",$plan->url);
+        //
     }
 
     /**
@@ -148,15 +121,8 @@ class DetailPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($urlPlan,$idDetail)
+    public function destroy($id)
     {
-        $plan = $this->plan->where('url',$urlPlan)->first();
-        $detail = $this->repository->where('id',$idDetail)->first();
-        if(!$plan || !$detail){
-            return redirect()->back();
-        }
-
-        $detail->delete();
-        return redirect()->route("details.plan.index",$plan->url);
+        //
     }
 }

@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/plans/{url}/show/{idDetail}',[DetailPlanController::class,'show'])->name('details.plan.show');
     Route::get('/plans/{url}/edit/{idDetail}',[DetailPlanController::class,'edit'])->name('details.plan.edit');
     Route::put('/plans/{url}/update/{idDetail}',[DetailPlanController::class,'update'])->name('details.plan.update');
-    Route::delete('/plans/{url}/destroy/{idDetail}',[DetailPlanController::class,'destroy'])->name('details.plan.destroy');
+    Route::delete('/plans/{url}/destroy',[DetailPlanController::class,'destroy'])->name('details.plan.destroy');
 });
 
 

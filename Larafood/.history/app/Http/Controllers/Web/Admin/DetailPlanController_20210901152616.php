@@ -156,7 +156,7 @@ class DetailPlanController extends Controller
             return redirect()->back();
         }
 
-        $detail->delete();
+        $plan->delete($detail);
         return redirect()->route("details.plan.index",$plan->url);
     }
 }

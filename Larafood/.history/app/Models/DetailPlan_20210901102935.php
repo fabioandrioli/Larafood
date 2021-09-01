@@ -10,9 +10,8 @@ class DetailPlan extends Model
     use HasFactory;
     protected $table = 'details_plans';
     protected $fillable = [
-        "name",
-        "plan_id"
-    ];
+        "name"
+    ]
 
     public function plan(){
         return $this->belongsTo(Plan::class);

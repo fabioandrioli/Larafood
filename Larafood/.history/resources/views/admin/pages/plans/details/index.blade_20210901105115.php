@@ -14,7 +14,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th width="150">Ação</th>
+                        <th width="250">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,8 +23,8 @@
                     <tr>
                         <td>{{$detail->name}}</td>
                         <td style="width=50px">
-                            <a href="{{route('details.plan.edit',[$plan->url, $detail->id])}}" class="btn btn-warning">Editar</a>
-                            <a href="{{route('details.plan.show',[$plan->url, $detail->id])}}" class="btn btn-warning">Ver</a>
+                            <a href="{{route('details.plan.edit',$plan->url)}}" class="btn btn-warning">EDITAR</a>
+                            <a href="{{route('details.plan.show',$plan->url)}}" class="btn btn-warning">VER</a>
                         </td>
                     </tr>
                     @empty

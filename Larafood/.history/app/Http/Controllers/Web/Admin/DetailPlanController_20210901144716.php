@@ -81,18 +81,9 @@ class DetailPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($urlPlan,$idDetail)
+    public function show($id)
     {
-        $plan = $this->plan->where('url',$urlPlan)->first();
-        $detail = $this->repository->where('id',$idDetail)->first();
-        if(!$plan || !$detail){
-            return redirect()->back();
-        }
-
-        return view("admin.pages.plans.details.show",[
-            'plan' => $plan,
-            'detail' => $detail,
-        ]);
+        //
     }
 
     /**
@@ -148,15 +139,8 @@ class DetailPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($urlPlan,$idDetail)
+    public function destroy($id)
     {
-        $plan = $this->plan->where('url',$urlPlan)->first();
-        $detail = $this->repository->where('id',$idDetail)->first();
-        if(!$plan || !$detail){
-            return redirect()->back();
-        }
-
-        $detail->delete();
-        return redirect()->route("details.plan.index",$plan->url);
+        //
     }
 }
