@@ -158,7 +158,7 @@ class DetailPlanController extends Controller
 
         $detail->delete();
         return redirect()
-                ->route("details.plan.index",$plan->url)
-                ->with('message','Registro deletado com sucesso');
+        ->route("details.plan.index",$plan->url)
+        ->with('message','Registro deletado com sucesso');
     }
 }
