@@ -22,11 +22,11 @@
 <script>
 
     function messageTimeOut(){
-        if(document.querySelector(".alert")){
-            let divClassMessageAlert = document.querySelector(".alert");
+        if(document.querySelector(".alert.alert-success") || document.querySelector(".alert.alert-warning")){
+            let divClassMessageAlertSuccess = document.querySelector(".alert.alert-success");
             setTimeout(function() { 
-                divClassMessageAlert.style.display = "none"
-            }, 7000);
+                divClassMessageAlertSuccess.style.display = "none"
+            }, 5000);
         }
     }
 

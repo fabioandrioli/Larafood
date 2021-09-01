@@ -26,7 +26,7 @@
             let divClassMessageAlert = document.querySelector(".alert");
             setTimeout(function() { 
                 divClassMessageAlert.style.display = "none"
-            }, 7000);
+            }, 2000);
         }
     }
 
