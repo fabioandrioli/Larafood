@@ -2,7 +2,7 @@
 
 
 @section('title', "Permissão")
-
+@stop
 
 @section('content_header')
     <h1>Detalhes do perfil: <b>{{$permission->name}}</b></h1>

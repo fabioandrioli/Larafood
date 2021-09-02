@@ -1,18 +1,17 @@
 @extends('adminlte::page')
 
 
-@section('title', "Permissão")
-
+@section('title', "Detalhes do Profile {$profile->name}")
 
 @section('content_header')
-    <h1>Detalhes do perfil: <b>{{$permission->name}}</b></h1>
+    <h1>Detalhes do perfil: <b>{{$profile->name}}</b></h1>
 @stop
 
 @section('content')
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-body">
-            @forelse($permission->profiles as $profile)
+            @forelse ($permisison->profiles as $profile)
                 <ul>
                     <li>
                         <strong>Nome: </strong>{{$profile->name}}
@@ -22,13 +21,13 @@
                         <strong>Descrição: </strong>{{$profile->description}}
                     </li>
                 </ul>
-            @empty
-            <ul>
-                <li>
-                    Nenhum perfil econtrado nestra permissão
-                </li>
-            </ul>
-            @endforelse
+                @empty
+                <ul>
+                    <li>
+                        <strong>Nenhuma permissão econtrada </strong>
+                    </li>
+                </ul>
+                @endforelse
         </div>
     </div>
 @stop

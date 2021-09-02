@@ -2,7 +2,7 @@
 
 
 @section('title', "Permissão")
-
+@stop
 
 @section('content_header')
     <h1>Detalhes do perfil: <b>{{$permission->name}}</b></h1>
@@ -12,14 +12,14 @@
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-body">
-            @forelse($permission->profiles as $profile)
+            @forelse()
                 <ul>
                     <li>
-                        <strong>Nome: </strong>{{$profile->name}}
+                        {{-- <strong>Nome: </strong>{{$profile->name}} --}}
                     </li>
                 
                     <li>
-                        <strong>Descrição: </strong>{{$profile->description}}
+                        {{-- <strong>Descrição: </strong>{{$profile->description}} --}}
                     </li>
                 </ul>
             @empty
