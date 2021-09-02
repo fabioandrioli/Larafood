@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use App\Http\Requests\Permission\RequestStoreUpdatePermission;
+use App\Http\Requests\Permission\RequestStoreUpdateDetailPermission;
 
 class PermissionController extends Controller
 {
@@ -45,7 +45,7 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestStoreUpdatePermission $request)
+    public function store(RequestStoreUpdateDetailPermission $request)
     {
         $this->repository->create($request->all());
         return redirect()->route('permissions.index');
@@ -90,7 +90,7 @@ class PermissionController extends Controller
      * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdatePermission $request,$id)
+    public function update(RequestStoreUpdateDetailPermission$request,$id)
     {
         $permission = $this->repository->find($id);
 

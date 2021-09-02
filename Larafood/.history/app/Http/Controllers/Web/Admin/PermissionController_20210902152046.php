@@ -90,7 +90,7 @@ class PermissionController extends Controller
      * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdatePermission $request,$id)
+    public function update(RequestStoreUpdateDetailPermission$request,$id)
     {
         $permission = $this->repository->find($id);
 
