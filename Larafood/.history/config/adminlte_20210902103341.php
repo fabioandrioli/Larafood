@@ -232,7 +232,7 @@ return [
             'icon' => 'fas fa-list-alt',
         ],
         [
-            'text'       => 'Perfis',
+            'text'       => 'Profiles',
             'url'        => 'admin/profiles',
             'icon' => 'fas fa-users',
         ],
