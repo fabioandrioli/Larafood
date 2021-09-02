@@ -237,7 +237,7 @@ return [
             'icon' => 'fas fa-users',
         ],
         [
-            'text'       => 'Permissions',
+            'text'       => 'Permission',
             'url'        => 'admin/permissions',
             'icon' => 'fa fa-lock',
         ],

@@ -5,7 +5,6 @@ use App\Http\Controllers\Web\Admin\{
     PlanController,
     DetailPlanController,
     ProfileController,
-    PermissionController,
 };
 
 /*
@@ -52,8 +51,8 @@ Route::group(['prefix' => 'admin'], function(){
      /**
     *   Routes permission
     **/
-    Route::resource('/permissions',PermissionController::class);
-    Route::any('/permissions/search',[PermissionController::class,'search'])->name('permissions.search');
+    Route::resource('/permissions',ProfileController::class);
+    Route::any('/permissions/search',[ProfileController::class,'search'])->name('permissions.search');
 });
 
 
