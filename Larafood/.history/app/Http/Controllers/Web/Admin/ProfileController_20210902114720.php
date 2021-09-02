@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Http\Request;
-use App\Http\Requests\Profile\RequestStoreUpdateProfile;
+use App\Http\Requests\Profile;
 
 class ProfileController extends Controller
 {
@@ -44,7 +44,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestStoreUpdateProfile $request)
+    public function store(Request $request)
     {
         $this->repository->create($request->all());
         return redirect()->route('profiles.index');
@@ -90,7 +90,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdateProfile $request,$id)
+    public function update(Request $request,$id)
     {
         $profile = $this->repository->find($id);
 
