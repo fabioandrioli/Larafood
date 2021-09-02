@@ -58,8 +58,8 @@ Route::group(['prefix' => 'admin'], function(){
     /**
     *   Routes profile_permisions
     **/
-    Route::get('/profiles/{id}/permissions',[ProfileController::class,'permissions'])->name('profiles.permissions');
-    Route::get('/permissions/{id}/profiles',[PermissionController::class,'profiles'])->name('permissions.profiles');
+    Route::get('/profiles/permissions/{id}',[ProfileController::class,'permissions'])->name('profiles.permissions');
+    Route::get('/permissions/profiles/{id}',[PermissionController::class,'profiles'])->name('permissions.profiles');
 });
 
 

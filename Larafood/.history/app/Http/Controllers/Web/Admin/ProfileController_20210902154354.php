@@ -109,7 +109,7 @@ class ProfileController extends Controller
         return view('admin.pages.profiles.index',compact('profiles','filters'));
     }
 
-    public function permissions($id){
+    public function permission($id){
 
         $profile= $this->repository->find($id);
 

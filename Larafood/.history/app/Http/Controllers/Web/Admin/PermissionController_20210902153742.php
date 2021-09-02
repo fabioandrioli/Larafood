@@ -104,8 +104,9 @@ class PermissionController extends Controller
     public function profile($id){
 
         $permission = $this->repository->find($id);
+        $profiles = $permission->profiles();
 
-        return view('admin.pages.permissions.profile',compact('permission'));
+        return view('admin.pages.permissions.profiles',compact('profiles'));
     }
 
 

@@ -35,7 +35,7 @@
                         <td style="width=10px">
                             <a href="{{route('profiles.edit',$profile->id)}}" class="btn btn-info">Editar</a>
                             <a href="{{route('profiles.show',$profile->id)}}" class="btn btn-warning">Ver</a>
-                            <a href="{{route('profiles.permissions',$profile->id)}}" class="btn btn-primary"><i class="fa fa-lock" aria-hidden="true"></i></a>
+                            <a href="{{route('profiles.show',$profile->id)}}" class="btn btn-primary">Permissões</a>
                         </td>
                     </tr>
                     @empty
