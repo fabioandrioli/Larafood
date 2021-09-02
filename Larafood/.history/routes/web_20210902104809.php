@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Admin\{
     PlanController,
     DetailPlanController,
-    ProfileController,
 };
 
 /*
@@ -45,8 +44,8 @@ Route::group(['prefix' => 'admin'], function(){
     /**
     *   Routes profile
     **/
-    Route::resource('/profiles',ProfileController::class);
-    Route::any('/profiles/search',[ProfileController::class,'search'])->name('profiles.search');
+    Route::resource('/profiles',PlanController::class);
+    Route::any('/profiles/search',[PlanController::class,'search'])->name('profiles.search');
 });
 
 

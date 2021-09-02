@@ -45,8 +45,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
-        return redirect()->route('profiles.index');
+        //
     }
 
     /**
@@ -55,15 +54,9 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Profile $profile)
     {
-        
-        $profile = $this->repository->find($id);
-
-        if(!$profile)
-            return redirect()->back();
-
-        return view('admin.pages.profiles.show',compact('profile'));
+        //
     }
 
     /**
@@ -72,14 +65,9 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profile $profile)
     {
-        $profile = $this->repository->find($id);
-
-        if(!$profile)
-            return redirect()->back();
-
-        return view('admin.pages.profiles.create_edit',compact('profile'));
+        //
     }
 
     /**
@@ -89,23 +77,9 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, Profile $profile)
     {
-        $profile = $this->repository->find($id);
-
-        if(!$profile)
-            return redirect()->back();
-
-        $profile->update($request->all());
-        return redirect()->route('profiles.index');
-    }
-
-    public function search(Request $request){
-
-        $filters = $request->except('_token');
-        $profiles = $this->repository->search($request->filter);
-
-        return view('admin.pages.profiles.index',compact('profiles','filters'));
+        //
     }
 
     /**
@@ -114,14 +88,8 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profile $profile)
     {
-        $profile = $this->repository->find($id);
-        if(!$profile)
-            return redirect()->back();
-    
-
-        $profile->delete();
-        return redirect()->route('profiles.index');
+        //
     }
 }

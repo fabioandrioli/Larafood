@@ -72,7 +72,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profile $profile)
     {
         $profile = $this->repository->find($id);
 
@@ -89,15 +89,9 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, Profile $profile)
     {
-        $profile = $this->repository->find($id);
-
-        if(!$profile)
-            return redirect()->back();
-
-        $profile->update($request->all());
-        return redirect()->route('profiles.index');
+        //
     }
 
     public function search(Request $request){
@@ -114,14 +108,8 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profile $profile)
     {
-        $profile = $this->repository->find($id);
-        if(!$profile)
-            return redirect()->back();
-    
-
-        $profile->delete();
-        return redirect()->route('profiles.index');
+        //
     }
 }

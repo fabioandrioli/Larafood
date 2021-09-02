@@ -72,7 +72,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profile $profile)
     {
         $profile = $this->repository->find($id);
 
@@ -89,7 +89,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, Profile $profile)
     {
         $profile = $this->repository->find($id);
 
@@ -114,12 +114,17 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profile $profile)
     {
-        $profile = $this->repository->find($id);
+        $profile = $this->repository->with('details')->where('url',$url)->first();
         if(!$profile)
             return redirect()->back();
-    
+        
+        if($profile->details->count() > 0){
+            return redirect()
+                    ->back()
+                    ->with('error', 'Existem detalhes vinculados a esse profileo, portanto não pode deletar');
+        }
 
         $profile->delete();
         return redirect()->route('profiles.index');
