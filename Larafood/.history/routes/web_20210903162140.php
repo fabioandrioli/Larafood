@@ -7,7 +7,6 @@ use App\Http\Controllers\Web\Admin\{
     ProfileController,
     PermissionController,
     ProfilePermissionController,
-    PlanProfileController,
 };
 
 /*
@@ -73,15 +72,6 @@ Route::group(['prefix' => 'admin'], function(){
     /**
     *   Routes profile_plans
     **/
-    Route::get('/profiles/{id}/plans',[PlanProfileController::class,'profiles'])->name('profiles.plans');
-
-    Route::get('/plans/{id}/profiles',[PlanProfileController::class,'plans'])->name('plans.profiles');
-
-    Route::any('/profile/{id}/linkNewPlan',[PlanProfileController::class,'linkNewPlan'])->name('profiles.linkNewPlan');
-  
-    Route::post('/profile/{id}/linkNewPlan/store',[PlanProfileController::class,'linkNewPlanStore'])->name('profiles.linkNewPlanStore');
-
-    Route::get('/profiles/{id}/plans/{idPlan}/unbindPlan',[PlanProfileController::class,'unbindPlan'])->name('profiles.plans.unbindPlan');
 
 });
 

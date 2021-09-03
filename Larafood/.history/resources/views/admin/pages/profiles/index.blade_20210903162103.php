@@ -36,7 +36,7 @@
                             <a href="{{route('profiles.edit',$profile->id)}}" class="btn btn-info">Editar</a>
                             <a href="{{route('profiles.show',$profile->id)}}" class="btn btn-warning">Ver</a>
                             <a href="{{route('profiles.permissions',$profile->id)}}" class="btn btn-primary"><i class="fa fa-lock" aria-hidden="true"></i></a>
-                            <a href="{{route('profiles.plans',$profile->id)}}" class="btn btn-dark"><i class="fas fa-list-alt" aria-hidden="true"></i></a>
+                            <a href="{{route('profiles.permissions',$profile->id)}}" class="btn btn-primary"><i class="fas fa-list-alt" aria-hidden="true"></i></a>
                            
                         </td>
                     </tr>
