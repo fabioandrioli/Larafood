@@ -28,7 +28,7 @@ class PlanProfileController extends Controller
 
     public function plans($id){
 
-        $plan = Plan::find($id);
+        $plan = plan::find($id);
         $profiles = $plan->profiles()->paginate();
 
         return view('admin.pages.plans.profile.index',compact('plan','profiles'));
@@ -68,7 +68,7 @@ class PlanProfileController extends Controller
 
     public function unbindplan($idProfile, $idplan){
         $profile = Profile::find($idProfile);
-        $plan = Plan::find($idplan);
+        $plan = plan::find($idplan);
         if(!$profile || !$plan){
             return redirect()->back();
         }
