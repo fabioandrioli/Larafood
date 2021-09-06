@@ -24,10 +24,9 @@ use App\Http\Controllers\Web\Site\SiteController;
 |
 */
 
-Route::get('/', [SiteController::class,'index']);
-
-Route::get('/subscription/{url}', [SiteController::class,'subscription'])->name('plan.subscription');
-
+Route::get('/', function () {
+    return view('site.home.index');
+});
 
 Auth::routes();
 
