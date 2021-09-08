@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $tenant = Tenant::first();
+        $tenant = Tenant::fisrt();
         $tenant->users()->create([
             'name' => 'Fábio Gilberto Andrioli Gonçalves',
             'email' => 'fabio.tads15@gmail.com',

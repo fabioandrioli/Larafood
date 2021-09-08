@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\{
-    Tenant,
-    Plan,
-};
+use App/Models/Tenant;
 
 class TenantsTableSeeder extends Seeder
 {
@@ -17,13 +14,11 @@ class TenantsTableSeeder extends Seeder
      */
     public function run()
     {
-        $plan = Plan::first();
-        $plan->tenants()->create([
+        Tenant::create([
             'cnpj' => '23882706000120',
             'name' => 'EspecializaTi',
             'url' => 'especializati',
             'email' => 'fabio.drioli@gmail.com',
-            'uuid' => '1',
         ]);
     }
 }

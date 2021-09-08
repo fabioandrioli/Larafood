@@ -9,7 +9,6 @@ class Tenant extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'uuid',
         'cnpj',
         'name',
         'url',
@@ -25,9 +24,5 @@ class Tenant extends Model
 
     public function users(){
         return $this->hasMany(User::class);
-    }
-
-    public function plans(){
-        return $this->belongsTo(Plan::class);
     }
 }

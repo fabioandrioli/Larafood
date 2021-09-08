@@ -14,17 +14,17 @@ class ProfilesTableSeeder extends Seeder
      */
     public function run()
     {
-        Profile::create([
+        Profile::create[
             'name' => 'Administrador',
             'description' => "Tem habilidade privilegiadas."
         ]);
 
-        Profile::create([
+        Profile::create[
             'name' => 'Company',
             "description" => 'Perfil empresariais.'
         ]);
 
-        Profile::create([
+        Profile::create[
             'name' => 'WebMaster',
             "description" => 'Faz todas as modificações que o sistema permite'
         ]);

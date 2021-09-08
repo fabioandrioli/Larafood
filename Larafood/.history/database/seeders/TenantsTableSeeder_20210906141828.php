@@ -4,11 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\{
+    Tenant,
     Plan,
-    Detail
 };
 
-class DetailsTableSeeder extends Seeder
+class TenantsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,8 +18,11 @@ class DetailsTableSeeder extends Seeder
     public function run()
     {
         $plan = Plan::first();
-        $plan->details()->create([
-            'name' => 'Plano inicial',
+        $plan->tenants()->create([
+            'cnpj' => '23882706000120',
+            'name' => 'EspecializaTi',
+            'url' => 'especializati',
+            'email' => 'fabio.drioli@gmail.com',
         ]);
     }
 }

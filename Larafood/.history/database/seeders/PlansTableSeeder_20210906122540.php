@@ -3,12 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\{
-    Plan,
-    Detail
-};
+use App\Models\Plan;
 
-class DetailsTableSeeder extends Seeder
+class PlansTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +14,8 @@ class DetailsTableSeeder extends Seeder
      */
     public function run()
     {
-        $plan = Plan::first();
-        $plan->details()->create([
-            'name' => 'Plano inicial',
+        Plan::create([
+            
         ]);
     }
 }

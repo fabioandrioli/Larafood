@@ -19,12 +19,12 @@ class ProfilesTableSeeder extends Seeder
             'description' => "Tem habilidade privilegiadas."
         ]);
 
-        Profile::create([
+        Profile::create[
             'name' => 'Company',
             "description" => 'Perfil empresariais.'
         ]);
 
-        Profile::create([
+        Profile::create[
             'name' => 'WebMaster',
             "description" => 'Faz todas as modificações que o sistema permite'
         ]);

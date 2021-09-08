@@ -18,11 +18,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name' => 'Editar',
             'description' => 'Pode editar planos e detalhes do sistema.'
-        ]);
+        ])
 
         Permission::create([
             'name' => 'Deletar',
             'description' => 'Pode deletar planos e detalhes do sistema.'
-        ]);
+        ])
     }
 }

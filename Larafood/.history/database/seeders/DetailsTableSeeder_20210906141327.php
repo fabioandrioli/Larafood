@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\{
-    Plan,
-    Detail
-};
+use App\Models\Detail;
 
 class DetailsTableSeeder extends Seeder
 {

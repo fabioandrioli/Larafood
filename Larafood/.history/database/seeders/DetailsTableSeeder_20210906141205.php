@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\{
-    Plan,
-    Detail
-};
+use App\Models\Detail;
 
 class DetailsTableSeeder extends Seeder
 {
@@ -17,9 +14,6 @@ class DetailsTableSeeder extends Seeder
      */
     public function run()
     {
-        $plan = Plan::first();
-        $plan->details()->create([
-            'name' => 'Plano inicial',
-        ]);
+        //
     }
 }
