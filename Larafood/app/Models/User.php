@@ -40,4 +40,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function search($filter = null){
+        return $results = $this
+                    ->where('name','LIKE',"%{$filter}%")
+                    ->orWhere('email','LIKE',"%{$filter}%")
+                    ->paginate();
+    }
+
+    public function tenant(){
+        return $this->belongsTo(Tenant::class);
+    }
 }

@@ -229,17 +229,22 @@ return [
         [
             'text'       => 'Planos',
             'url'        => 'admin/plans',
-            'icon' => 'fas fa-list-alt',
+            'icon'       => 'fas fa-list-alt',
         ],
         [
             'text'       => 'Perfis',
             'url'        => 'admin/profiles',
-            'icon' => 'fas fa-users',
+            'icon'       => 'fa fa-address-book',
         ],
         [
             'text'       => 'Permissões',
             'url'        => 'admin/permissions',
             'icon' => 'fa fa-lock',
+        ],
+        [
+            'text'       => 'Usuários',
+            'url'        => 'admin/users',
+            'icon'       => 'fa fa-users',
         ],
         
     ],

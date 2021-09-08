@@ -35,6 +35,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     Route::resource('/plans',PlanController::class);
     Route::any('/plans/search',[PlanController::class,'search'])->name('plans.search');
 
+
+    /**
+    *   Routes users
+    **/
+    Route::resource('/users',PlanController::class);
+    Route::any('/users/search',[PlanController::class,'search'])->name('plans.search');
+
     /**
     *   Routes details
     **/
