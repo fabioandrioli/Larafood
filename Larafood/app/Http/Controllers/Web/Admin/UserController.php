@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\RequestStoreUpdateUser;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -47,13 +48,14 @@ class UserController extends Controller
     public function store(RequestStoreUpdateuser $request)
     {
 
-        $tenant = auth()->user()->tenant;
+        $user = Auth::user();
+        $tenant = $user->tenant;
 
         $data = $request->all();
 
-        $data['tenant_id'] = $tenant->id();
-
-        $this->repository->create($request->all());
+        $data['tenant_id'] = $tenant->id;
+       // dd($data);
+        $this->repository->create($data);
         return redirect()->route('users.index');
     }
 
