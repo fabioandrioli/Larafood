@@ -24,9 +24,6 @@ use App\Http\Controllers\Web\Site\SiteController;
 |
 */
 
-Route::get('/', [SiteController::class,'index']);
-
-Route::get('/subscription/{url}', [SiteController::class,'subscription'])->name('plan.subscription');
 
 
 Auth::routes();
@@ -88,6 +85,15 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     Route::get('/profiles/{id}/plans/{idPlan}/unbindPlan',[PlanProfileController::class,'unbindPlan'])->name('profiles.plans.unbindPlan');
 
 });
+
+
+/**
+ * Rotas da web
+ */
+
+Route::get('/', [SiteController::class,'index']);
+
+Route::get('/subscription/{url}', [SiteController::class,'subscription'])->name('plan.subscription');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
