@@ -23,7 +23,6 @@ class TenantsTableSeeder extends Seeder
             'name' => 'EspecializaTi',
             'url' => 'especializati',
             'email' => 'fabio.drioli@gmail.com',
-            'uuid' => '1',
         ]);
     }
 }
