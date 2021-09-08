@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->latest()->paginate(10);
+        $users = $this->repository->latest()->tenantUser()->paginate(10);
         return view('admin.pages.users.index',compact('users'));
     }
 
@@ -69,7 +69,7 @@ class UserController extends Controller
     public function show($id)
     {
         
-        $user = $this->repository->find($id);
+        $user = $this->repository->tenantUser()->find($id);
 
         if(!$user)
             return redirect()->back();
@@ -85,7 +85,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->repository->find($id);
+        $user = $this->repository->tenantUser()->find($id);
 
         if(!$user)
             return redirect()->back();
@@ -102,7 +102,7 @@ class UserController extends Controller
      */
     public function update(RequestStoreUpdateuser $request,$id)
     {
-        $user = $this->repository->find($id);
+        $user = $this->repository->tenantUser()->find($id);
 
         if(!$user)
             return redirect()->back();
@@ -134,7 +134,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = $this->repository->find($id);
+        $user = $this->repository->tenantUser()->find($id);
         if(!$user)
             return redirect()->back();
     
