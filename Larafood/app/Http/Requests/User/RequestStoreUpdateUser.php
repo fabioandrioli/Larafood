@@ -28,10 +28,16 @@ class RequestStoreUpdateUser extends FormRequest
         e assim por diante.     /  1   /  2  /   3
         //http://127.0.0.1:8000/admin/plans/asdasdasd/edit */
         $id = $this->segment(3);
-        return [
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,{$id},id'],
             'password' => ['required', 'string', 'min:6'],
         ];
+
+        if($this->method() == 'PUT'){
+            $rules['password'] = ['nullable', 'string', 'min:6'];
+        }
+
+        return $rules;
     }
 }
