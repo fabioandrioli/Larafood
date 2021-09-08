@@ -30,4 +30,8 @@ class Tenant extends Model
     public function plans(){
         return $this->belongsTo(Plan::class);
     }
+
+    public function categories(){
+        return $this->hasMany(Category::class);
+    }
 }
