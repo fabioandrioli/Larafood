@@ -9,6 +9,7 @@ use App\Http\Controllers\Web\Admin\{
     ProfilePermissionController,
     PlanProfileController,
     UserController,
+    CategoryController,
     
 };
 
@@ -42,6 +43,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     **/
     Route::resource('/users', UserController::class);
     Route::any('/users/search',[ UserController::class,'search'])->name('users.search');
+
+    
+    /**
+    *   Routes Category
+    **/
+    Route::resource('/categories', UserController::class);
+    Route::any('/categories/search',[ UserController::class,'search'])->name('categories.search');
 
     /**
     *   Routes details
