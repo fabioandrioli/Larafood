@@ -19,8 +19,8 @@ class SiteController extends Controller
         return view('site.home.index',compact('plans'));
     }
 
-    public function subscription(){
-        if ($plan = Plan::where($url,'url')->first()){
+    public function subscription($url){
+        if (!$plan = Plan::where('url',$url)->first()){
             return redirect()->back();
         }
 
