@@ -16,10 +16,11 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Tenant::class);
             $table->string('name')->unique();
             $table->string('url')->unique();
             $table->text('description');
-            $table->foreignIdFor(Tenant::class);
+           
             $table->timestamps();
         });
     }
