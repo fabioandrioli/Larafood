@@ -20,6 +20,7 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
+                        <th>Imagem</th>
                         <th>Titulo</th>
                         <th>Preço</th>
                         <th width="250">Ação</th>
@@ -29,6 +30,7 @@
 
                     @forelse($products as $product)
                     <tr>
+                        <td><img src="{{$product->image}}" alt="$product->title" class="img-thumbnail"></td>
                         <td>{{$product->title}}</td>
                         <td>R$ {{number_format($product->price, 2, ',','.')}}</td>
                         <td style="width=10px">

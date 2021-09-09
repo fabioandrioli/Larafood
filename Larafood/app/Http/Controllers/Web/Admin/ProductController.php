@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\product\RequestStoreUpdateProduct;
-
+use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     private $repository;
@@ -45,8 +45,14 @@ class ProductController extends Controller
     public function store(RequestStoreUpdateProduct $request)
     {
 
-        
-        $this->repository->create( $request->all());
+        $data = $request->all();
+        $user = Auth::user();
+        $tenant = $user->tenant;
+        if($request->hasFile('image') && $request->image->isValid()){
+            $data["image"] = $request->image->store("tenants/{$tenant->uuid}/products");
+        }
+
+        $this->repository->create($data);
         return redirect()->route('products.index');
     }
 
@@ -97,6 +103,12 @@ class ProductController extends Controller
         if(!$product)
             return redirect()->back();
 
+        $data = $request->all();
+        $user = Auth::user();
+        $tenant = $user->tenant;
+        if($request->hasFile('image') && $request->image->isValid()){
+            $data["image"] = $request->image->store("tenants/{$tenant->uuid}/products");
+        }
         $product->update($request->all());
         return redirect()->route('products.index');
     }

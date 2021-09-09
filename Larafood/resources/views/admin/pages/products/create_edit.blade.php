@@ -15,10 +15,10 @@
         <div class="card-body">
             @include('admin.includes.alerts')
             @if(isset($product))
-            <form action="{{route('products.update',$product->id)}}" class="form" method="POST">
+            <form action="{{route('products.update',$product->id)}}" class="form" method="POST" encrypted="multipart/form-data">
                 @method('put')
             @else
-             <form action="{{route('products.store')}}" class="form" method="POST">
+             <form action="{{route('products.store')}}" class="form" method="POST" encrypted="multipart/form-data">
             @endif
                 @csrf
                 <div class="form-group">
@@ -33,6 +33,12 @@
                     <label>Descrição:</label>
                     <input type="description" name="description" value="{{$product->description ?? old('description') }}" class="form-control" placeholder="Descrição:">
                 </div>
+                <form>
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Imagem do produto</label>
+                      <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                  </form>
                 <div class="form-group">
                     <button type="submit" class="btn btn-dark">Enviar</button>
                 </div>

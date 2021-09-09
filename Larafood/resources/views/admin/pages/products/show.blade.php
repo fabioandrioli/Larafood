@@ -21,6 +21,9 @@
         <div class="card-body">
             <ul>
                 <li>
+                    <img src="{{$product->image}}" alt="$product->title" class="img-thumbnail">
+                </li>
+                <li>
                     <strong>Titulo: </strong>{{$product->title}}
                 </li>
                 <li>
