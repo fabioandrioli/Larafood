@@ -3,7 +3,7 @@
 @section('title', 'Permissões do perfil')
 
 @section('content_header')
-    <h1>Vincular novo Produto na Categoria: {{$category->name}} <a href="{{route('categories.linkNewProduct',$category->id)}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Vincular novo Produto na Categoria: {{$category->name}} <a href="{{route('categories.linkNewProduct',$category->url)}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')

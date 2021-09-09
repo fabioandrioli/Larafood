@@ -29,7 +29,7 @@ class CategoryProductController extends Controller
 
     public function linkNewProduct(Request $request,$url){
         $category = Category::where('url',$url)->first();
-    
+      
         if(!$category){
             return redirect()->back();
         }
