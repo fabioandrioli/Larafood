@@ -29,7 +29,7 @@ class RequestStoreUpdateProduct extends FormRequest
         //http://127.0.0.1:8000/admin/plans/asdasdasd/edit */
         $id = $this->segment(3);
         $rules = [
-            'title' => ['required', 'string', 'max:255','unique:products,name,{$id},id'],
+            'title' => ['required', 'string', 'max:255','unique:products,title,{$id},id'],
             'description' => ['required', 'string', 'max:255'],
             'image' => ['required', 'image'],
             'price' => "required|regex:/^\d+(\.\d{1,2})?$/"
