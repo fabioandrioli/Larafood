@@ -2,6 +2,7 @@
 
 namespace App\Observers\Product;
 use App\Models\Product;
+use Illuminate\Support\Str;
 class ProductObserver
 {
      /**
