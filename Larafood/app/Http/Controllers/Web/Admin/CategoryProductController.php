@@ -56,7 +56,7 @@ class CategoryProductController extends Controller
                     ->with("error" , "Precisa escolher pelo menos um produto");
         }
 
-        $category->products()->attach($request->categorys);
+        $category->products()->attach($request->products);
 
         return redirect()->route("categories.products", $category->url);
     }
