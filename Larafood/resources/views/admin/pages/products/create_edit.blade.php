@@ -15,10 +15,10 @@
         <div class="card-body">
             @include('admin.includes.alerts')
             @if(isset($product))
-            <form action="{{route('products.update',$product->id)}}" class="form" method="POST" encrypted="multipart/form-data">
+            <form action="{{route('products.update',$product->id)}}" class="form" method="POST" enctype="multipart/form-data">
                 @method('put')
             @else
-             <form action="{{route('products.store')}}" class="form" method="POST" encrypted="multipart/form-data">
+             <form action="{{route('products.store')}}" class="form" method="POST" enctype="multipart/form-data">
             @endif
                 @csrf
                 <div class="form-group">
