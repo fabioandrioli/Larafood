@@ -51,6 +51,19 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     Route::resource('/categories', UserController::class);
     Route::any('/categories/search',[ UserController::class,'search'])->name('categories.search');
 
+        
+    /**
+    *   Routes Product
+    **/
+    Route::resource('/products', ProductController::class);
+    Route::any('/products/search',[ ProductController::class,'search'])->name('products.search');
+
+    /**
+    *   Routes Table
+    **/
+    Route::resource('/tables', TableController::class);
+    Route::any('/tables/search',[ TableController::class,'search'])->name('tables.search');
+
     /**
     *   Routes details
     **/

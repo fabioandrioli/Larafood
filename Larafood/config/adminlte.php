@@ -246,6 +246,11 @@ return [
             'url'        => 'admin/users',
             'icon'       => 'fa fa-users',
         ],
+        [
+            'text'       => 'Mesas',
+            'url'        => 'admin/tables',
+            'icon'       => 'fa fa-square',
+        ],
         
     ],
 
