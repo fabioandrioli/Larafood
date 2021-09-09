@@ -47,9 +47,8 @@ class CategoryController extends Controller
     public function store(RequestStoreUpdatecategory $request)
     {
 
-        $data = $request->all();
-        $data['url'] = $request->name;
-        $this->repository->create( $data['url']);
+        
+        $this->repository->create( $request->all());
         return redirect()->route('categories.index');
     }
 
@@ -59,10 +58,10 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($url)
     {
         
-        $category = $this->repository->find($id);
+        $category = $this->repository->where('url',$url)->first();
 
         if(!$category)
             return redirect()->back();
@@ -76,9 +75,9 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($url)
     {
-        $category = $this->repository->find($id);
+        $category = $this->repository->where('url',$url)->first();
 
         if(!$category)
             return redirect()->back();
@@ -93,9 +92,9 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdatecategory $request,$id)
+    public function update(RequestStoreUpdatecategory $request,$url)
     {
-        $category = $this->repository->find($id);
+        $category = $this->repository->where('url',$url)->first();
 
         if(!$category)
             return redirect()->back();
@@ -119,9 +118,9 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($url)
     {
-        $category = $this->repository->find($id);
+        $category = $this->repository->where('url',$url)->first();
         if(!$category)
             return redirect()->back();
     

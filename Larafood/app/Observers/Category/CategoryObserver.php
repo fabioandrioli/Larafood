@@ -2,8 +2,9 @@
 
 namespace App\Observers\Category;
 use Illuminate\Support\Str;
+use App\Models\Category;
 
-class CategoryObserve
+class CategoryObserver
 {
      /**
      * Handle the Category "created" event.

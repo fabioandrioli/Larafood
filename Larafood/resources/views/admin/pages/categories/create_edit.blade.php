@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label>Descrição:</label>
-                    <input type="text" name="description" value="{{$category->description ?? old('description') }}" class="form-control" placeholder="Descrição:">
+                    <textArea name="description" value="{{$category->description ?? old('description') }}" class="form-control" placeholder="Descrição:"></textArea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-dark">Enviar</button>

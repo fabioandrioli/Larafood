@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
+use App\Tenant\Observers\TenantObserver;
+use App\Tenant\Traits\TenantTrait;
 
 class Category extends Model
 {
     use HasFactory;
+    use TenantTrait;
 
     protected $fillable = [
         "name",
@@ -15,6 +19,8 @@ class Category extends Model
         "description",
         "tenant_id",
     ];
+
+   
 
     public function search($filter = null){
         return $results = $this

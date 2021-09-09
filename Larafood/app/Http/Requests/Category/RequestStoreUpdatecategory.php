@@ -26,7 +26,6 @@ class RequestStoreUpdatecategory extends FormRequest
         $url = $this->segment(3);
         return  [
             'name' => ['required', 'string', 'max:255','unique:categories,name,{$url},url'],
-            'url' => ['required', 'string', 'max:255', 'unique:categories,url,{$url},url'],
             'description' => ['required', 'string', 'min:6'],
         ];
     }
