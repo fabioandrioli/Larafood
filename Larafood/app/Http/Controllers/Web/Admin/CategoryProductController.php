@@ -43,7 +43,9 @@ class CategoryProductController extends Controller
     }
 
     public function linkNewProductStore(Request $request, $url){
+   
         $category = Category::where('url',$url)->first();
+        
         if(!$category){
             return redirect()->back();
         }
@@ -56,7 +58,7 @@ class CategoryProductController extends Controller
 
         $category->products()->attach($request->categorys);
 
-        return redirect()->route("categories.products", $category->id);
+        return redirect()->route("categories.products", $category->url);
     }
 
     public function unbindProduct($url,$idProduct){

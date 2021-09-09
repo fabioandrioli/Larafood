@@ -10,7 +10,7 @@
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-header">
-            <form class="form form-inline" method="POST" action="{{route('categories.linkNewProduct',$category->id)}}">
+            <form class="form form-inline" method="POST" action="{{route('categories.linkNewProduct',$category->url)}}">
                 @csrf
                 <input type="text" name="filter" value="{{$filters['filter'] ?? ''}}" placeholder="Nome" class="form-control">
                 <button type="submit" class="btn btn-dark"><i class="fa fa-glass"></i> Filtrar</button>
@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form action="{{route('categories.linkNewProductStore',$category->id)}}" method="POST">
+                    <form action="{{route('categories.linkNewProductStore',$category->url)}}" method="POST">
                         @csrf
                         @forelse($products as $product)
                         <tr>

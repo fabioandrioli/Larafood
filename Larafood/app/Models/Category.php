@@ -33,11 +33,11 @@ class Category extends Model
         $products = Product::whereNotIn('products.id',function($query){
             $query->select("category_product.product_id");
             $query->from("category_product");
-            $query->whereRaw("product_id={$this->id}");
+            $query->whereRaw("category_id={$this->id}");
         })
         ->where(function($queryFilter) use ($filter){
             if($filter)
-                $queryFilter->where('products.name','LIKE',"%{$filter}%");
+                $queryFilter->where('products.title','LIKE',"%{$filter}%");
         })
         ->paginate();
         return $products;

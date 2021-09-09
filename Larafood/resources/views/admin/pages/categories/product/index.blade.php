@@ -33,7 +33,7 @@
                         <td>{{$product->description}}</td>
                     
                         <td style="width=10px">
-                            <a href="{{route('categories.products.unbindProduct',[$category->id,$product->id])}}" class="btn btn-danger">Desvincular</a>
+                            <a href="{{route('categories.products.unbindProduct',[$category->url,$product->id])}}" class="btn btn-danger">Desvincular</a>
                         </td>
                     </tr>
                     @empty
