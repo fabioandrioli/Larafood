@@ -247,6 +247,16 @@ return [
             'icon'       => 'fa fa-users',
         ],
         [
+            'text'       => 'Categorias',
+            'url'        => 'admin/categories',
+            'icon'       => 'fa fa-boxes',
+        ],
+        [
+            'text'       => 'Produtos',
+            'url'        => 'admin/products',
+            'icon'       => 'fa fa-cubes',
+        ],
+        [
             'text'       => 'Mesas',
             'url'        => 'admin/tables',
             'icon'       => 'fa fa-square',

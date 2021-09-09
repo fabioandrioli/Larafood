@@ -10,7 +10,10 @@ use App\Http\Controllers\Web\Admin\{
     PlanProfileController,
     UserController,
     CategoryController,
-    
+    ProductController,
+    TableController,
+    CategoryProductController,
+
 };
 
 use App\Http\Controllers\Web\Site\SiteController;
@@ -48,8 +51,21 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     /**
     *   Routes Category
     **/
-    Route::resource('/categories', UserController::class);
-    Route::any('/categories/search',[ UserController::class,'search'])->name('categories.search');
+    Route::resource('/categories', CategoryController::class);
+    Route::any('/categories/search',[ CategoryController::class,'search'])->name('categories.search');
+
+
+    /**
+    *   Routes category_product
+    **/
+
+    Route::get('/categories/{id}/products',[ CategoryProductController::class,'categories'])->name('categories.products');
+
+    Route::any('/category/{id}/linkNewProduct',[ CategoryProductController::class,'linkNewProduct'])->name('categories.linkNewProduct');
+  
+    Route::post('/category/{id}/linkNewProduct/store',[ CategoryProductController::class,'linkNewProductStore'])->name('categories.linkNewProductStore');
+
+    Route::get('/categories/{id}/products/{idProduct}/unbindProduct',[ CategoryProductController::class,'unbindProduct'])->name('categories.products.unbindproduct');
 
         
     /**

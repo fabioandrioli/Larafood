@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Categorias')
+@section('title', 'Permissões do perfil')
 
 @section('content_header')
-    <h1>Categorias <a href="{{route('categories.create')}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Vincular novo Produto na Categoria: {{$category->name}} <a href="{{route('categories.linkNewProduct',$category->id)}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')
@@ -21,25 +21,24 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>descrição</th>
+                        <th>Descrição</th>
                         <th width="250">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse($categories as $category)
+                    @forelse($products as $product)
                     <tr>
-                        <td>{{$category->name}}</td>
-                        <td>R$ {{number_format($category->price, 2, ',','.')}}</td>
+                        <td>{{$product->title}}</td>
+                        <td>{{$product->description}}</td>
+                    
                         <td style="width=10px">
-                            <a href="{{route('categories.product.index',$category->url)}}" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i></a>
-                            <a href="{{route('categories.edit',$category->url)}}" class="btn btn-info">Editar</a>
-                            <a href="{{route('categories.show',$category->url)}}" class="btn btn-warning">Ver</a>
+                            <a href="{{route('categories.products.unbindProduct',[$category->id,$product->id])}}" class="btn btn-danger">Desvincular</a>
                         </td>
                     </tr>
                     @empty
                     <tr >
-                        <td> <p>Nenhum categoria encontrada.</p></td>
+                        <td> <p>Nenhum produto encontrado.</p></td>
                     </tr>
                     @endforelse
                 </tbody>
@@ -47,9 +46,9 @@
         </div>
         <div class="card-footer">
             @if(isset($filters))
-                {!! $categories->appends($filters)->links("pagination::bootstrap-4") !!}
+                {!! $products->appends($filters)->links("pagination::bootstrap-4") !!}
              @else
-                {!! $categories->links("pagination::bootstrap-4") !!}
+                {!! $products->links("pagination::bootstrap-4") !!}
             @endif
 
         </div>
