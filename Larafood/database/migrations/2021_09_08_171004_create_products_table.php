@@ -31,7 +31,7 @@ class CreateProductsTable extends Migration
         });
 
         Schema::create('category_product', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->foreignIdFor(Category::class);
             $table->foreignIdFor(Product::class);
         });
@@ -45,5 +45,6 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('category_product');
     }
 }

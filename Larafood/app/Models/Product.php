@@ -30,5 +30,8 @@ class Product extends Model
                     ->paginate();
     }
 
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
   
 }

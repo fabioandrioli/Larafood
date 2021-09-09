@@ -24,8 +24,6 @@ class CreateTablesTable extends Migration
             $table->string('identify');
             $table->string('description')->nullable();
             $table->timestamps();
-
-            $table->timestamps();
         });
     }
 

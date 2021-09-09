@@ -38,6 +38,10 @@ class Category extends Model
         return $products;
     }
 
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
+
     public function tenants(){
         return $this->belongsTo(Tenant::class);
     }

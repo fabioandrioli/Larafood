@@ -19,16 +19,16 @@ class CategoryProductController extends Controller
     }
 
 
-    public function categories($id){
+    public function categories($url){
 
-        $category = Category::find($id);
+        $category = Category::where('url',$url)->first();
         $products = $category->products()->paginate();
 
         return view('admin.pages.categories.product.index',compact('category','products'));
     }
 
-    public function linkNewProduct(Request $request,$id){
-        $category = Category::find($id);
+    public function linkNewProduct(Request $request,$url){
+        $category = Category::where('url',$url)->first();
     
         if(!$category){
             return redirect()->back();
@@ -42,8 +42,8 @@ class CategoryProductController extends Controller
         return view('admin.pages.categories.product.linkNewProduct',compact('products','category','filters'));
     }
 
-    public function linkNewProductStore(Request $request, $id){
-        $category = Category::find($id);
+    public function linkNewProductStore(Request $request, $url){
+        $category = Category::where('url',$url)->first();
         if(!$category){
             return redirect()->back();
         }
@@ -59,9 +59,9 @@ class CategoryProductController extends Controller
         return redirect()->route("categories.products", $category->id);
     }
 
-    public function unbindProduct($idProduct, $idCategory){
+    public function unbindProduct($url,$idProduct){
         $product = Product::find($idProduct);
-        $category = Category::find($idCategory);
+        $category = Category::where('url',$url)->first();
         if(!$product || !$category){
             return redirect()->back();
         }

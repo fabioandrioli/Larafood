@@ -30,9 +30,9 @@
                     @forelse($categories as $category)
                     <tr>
                         <td>{{$category->name}}</td>
-                        <td>R$ {{number_format($category->price, 2, ',','.')}}</td>
+                        <td>{{$category->description}}</td>
                         <td style="width=10px">
-                            <a href="{{route('categories.product.index',$category->url)}}" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i></a>
+                            <a href="{{route('categories.products',$category->url)}}" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i></a>
                             <a href="{{route('categories.edit',$category->url)}}" class="btn btn-info">Editar</a>
                             <a href="{{route('categories.show',$category->url)}}" class="btn btn-warning">Ver</a>
                         </td>

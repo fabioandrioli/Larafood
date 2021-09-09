@@ -59,13 +59,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     *   Routes category_product
     **/
 
-    Route::get('/categories/{id}/products',[ CategoryProductController::class,'categories'])->name('categories.products');
+    Route::get('/categories/{url}/products',[ CategoryProductController::class,'categories'])->name('categories.products');
 
-    Route::any('/category/{id}/linkNewProduct',[ CategoryProductController::class,'linkNewProduct'])->name('categories.linkNewProduct');
+    Route::any('/category/{url}/linkNewProduct',[ CategoryProductController::class,'linkNewProduct'])->name('categories.linkNewProduct');
   
-    Route::post('/category/{id}/linkNewProduct/store',[ CategoryProductController::class,'linkNewProductStore'])->name('categories.linkNewProductStore');
+    Route::post('/category/{url}/linkNewProduct/store',[ CategoryProductController::class,'linkNewProductStore'])->name('categories.linkNewProductStore');
 
-    Route::get('/categories/{id}/products/{idProduct}/unbindProduct',[ CategoryProductController::class,'unbindProduct'])->name('categories.products.unbindproduct');
+    Route::get('/categories/{url}/products/{idProduct}/unbindProduct',[ CategoryProductController::class,'unbindProduct'])->name('categories.products.unbindproduct');
 
         
     /**
