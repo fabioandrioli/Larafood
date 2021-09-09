@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use App\Tenant\Observers\TenantObserver;
 use App\Tenant\Traits\TenantTrait;
 
 class Category extends Model

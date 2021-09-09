@@ -44,7 +44,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestStoreUpdatecategory $request)
+    public function store(RequestStoreUpdateCategory $request)
     {
 
         
@@ -92,7 +92,7 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdatecategory $request,$url)
+    public function update(RequestStoreUpdateCategory $request,$url)
     {
         $category = $this->repository->where('url',$url)->first();
 
