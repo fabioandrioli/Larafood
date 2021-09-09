@@ -13,7 +13,7 @@ class ProductObserver
     public function creating(Product $product)
     {
         $product->uuid = Str::uuid();
-        $product->url = Str::kebab($product->title);
+        $product->flag = Str::kebab($product->title);
     }
 
     /**
@@ -24,6 +24,6 @@ class ProductObserver
      */
     public function updating(Product $product)
     {
-        $product->url = Str::kebab($product->title);
+        $product->flag = Str::kebab($product->title);
     }
 }
