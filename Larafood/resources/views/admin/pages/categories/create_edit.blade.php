@@ -26,10 +26,6 @@
                     <input type="text" name="name" value="{{$category->name ?? old('name')}}" class="form-control" placeholder="Nome:">
                 </div>
                 <div class="form-group">
-                    <label>Preço:</label>
-                    <input type="text" name="url" value="{{$category->url ?? old('url')}}" class="form-control" placeholder="Url:">
-                </div>
-                <div class="form-group">
                     <label>Descrição:</label>
                     <input type="text" name="description" value="{{$category->description ?? old('description') }}" class="form-control" placeholder="Descrição:">
                 </div>

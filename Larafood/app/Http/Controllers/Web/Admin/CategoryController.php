@@ -46,7 +46,10 @@ class CategoryController extends Controller
      */
     public function store(RequestStoreUpdatecategory $request)
     {
-        $this->repository->create($request->all());
+
+        $data = $request->all();
+        $data['url'] = $request->name;
+        $this->repository->create( $data['url']);
         return redirect()->route('categories.index');
     }
 
