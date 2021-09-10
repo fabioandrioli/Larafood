@@ -230,36 +230,44 @@ return [
             'text'       => 'Planos',
             'url'        => 'admin/plans',
             'icon'       => 'fas fa-list-alt',
+            'can'        =>  'Plans',
         ],
         [
             'text'       => 'Perfis',
             'url'        => 'admin/profiles',
             'icon'       => 'fa fa-address-book',
+            'can'        =>  'Profile',
         ],
         [
             'text'       => 'Permissões',
             'url'        => 'admin/permissions',
-            'icon' => 'fa fa-lock',
+            'icon'       => 'fa fa-lock',
+            'can'        =>  'Permissions',
         ],
         [
             'text'       => 'Usuários',
             'url'        => 'admin/users',
             'icon'       => 'fa fa-users',
+            'can'        =>  'Users',
         ],
         [
             'text'       => 'Categorias',
             'url'        => 'admin/categories',
             'icon'       => 'fa fa-boxes',
+            'can'        =>  'Categories',
+            
         ],
         [
             'text'       => 'Produtos',
             'url'        => 'admin/products',
             'icon'       => 'fa fa-cubes',
+            'can'        =>  'Products',
         ],
         [
             'text'       => 'Mesas',
             'url'        => 'admin/tables',
             'icon'       => 'fa fa-square',
+            'can'        =>  'Table',
         ],
         
     ],
