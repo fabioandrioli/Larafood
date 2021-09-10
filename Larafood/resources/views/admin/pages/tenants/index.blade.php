@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Produtos')
+@section('title', 'Empresas')
 
 @section('content_header')
-    <h1>Produtos <a href="{{route('products.create')}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Empresas</h1>
 @stop
 
 @section('content')
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-header">
-            <form class="form form-inline" method="POST" action="{{route('products.search')}}">
+            <form class="form form-inline" method="POST" action="{{route('tenants.search')}}">
                 @csrf
                 <input type="text" name="filter" value="{{$filters['filter'] ?? ''}}" placeholder="Nome" class="form-control">
                 <button type="submit" class="btn btn-dark"><i class="fa fa-glass"></i> Filtrar</button>
@@ -20,27 +20,26 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Imagem</th>
+                        <th>Logo</th>
                         <th>Titulo</th>
-                        <th>Preço</th>
+                        <th>Plano</th>
                         <th width="250">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse($products as $product)
+                    @forelse($tenants as $tenant)
                     <tr>
-                        <td><img width="200px" height="200px" src="{{ url("storage/{$product->image}") }}" alt="{{$product->title}}" class="img-thumbnail"></td>
-                        <td>{{$product->title}}</td>
-                        <td>R$ {{number_format($product->price, 2, ',','.')}}</td>
+                        <td><img width="200px" height="200px" src="{{ url("storage/{$tenant->image}") }}" alt="{{$tenant->title}}" class="img-thumbnail"></td>
+                        <td>{{$tenant->title}}</td>
+                        <td>R$ {{$tenant->plan->name}}</td>
                         <td style="width=10px">
-                            <a href="{{route('products.edit',$product->id)}}" class="btn btn-info">Editar</a>
-                            <a href="{{route('products.show',$product->id)}}" class="btn btn-warning">Ver</a>
+                            <a href="{{route('tenants.show',$tenant->id)}}" class="btn btn-warning">Ver</a>
                         </td>
                     </tr>
                     @empty
                     <tr >
-                        <td> <p>Nenhum produto encontrado.</p></td>
+                        <td> <p>Nenhum empresa encontrado.</p></td>
                     </tr>
                     @endforelse
                 </tbody>
@@ -48,9 +47,9 @@
         </div>
         <div class="card-footer">
             @if(isset($filters))
-                {!! $products->appends($filters)->links("pagination::bootstrap-4") !!}
+                {!! $tenants->appends($filters)->links("pagination::bootstrap-4") !!}
              @else
-                {!! $products->links("pagination::bootstrap-4") !!}
+                {!! $tenants->links("pagination::bootstrap-4") !!}
             @endif
 
         </div>
