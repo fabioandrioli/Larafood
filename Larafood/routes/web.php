@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Web\Admin\{
     PlanController,
     DetailPlanController,
@@ -36,7 +37,9 @@ Auth::routes();
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
 
 
-    Route::get('/teste-acl',PlanController::class);
+    Route::get('/teste-acl',function(){
+        return dd(Auth()->user()->isAdmin());
+    });
 
     /**
     *   Routes plan
