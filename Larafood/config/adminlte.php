@@ -269,6 +269,11 @@ return [
             'icon'       => 'fa fa-square',
             'can'        =>  'Table',
         ],
+        [
+            'text'       => 'Empresas',
+            'url'        => 'admin/tenants',
+            'icon'       => 'fa fa-building',
+        ],
         
     ],
 

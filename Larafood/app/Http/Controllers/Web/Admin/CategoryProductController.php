@@ -16,6 +16,7 @@ class CategoryProductController extends Controller
 
         $this->$product = $product;
         $this->$category = $category;
+       
     }
 
 

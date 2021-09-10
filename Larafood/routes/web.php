@@ -51,9 +51,18 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     /**
     *   Routes users
     **/
+    // Route::resource('users', UserController::class)->middleware('can:Users');
+    // Route::any('users/search',[ UserController::class,'search'])->name('users.search')->middleware('can:Users');
+
     Route::resource('users', UserController::class);
     Route::any('users/search',[ UserController::class,'search'])->name('users.search');
 
+
+    /**
+    *   Routes Tenants
+    **/
+    Route::resource('tenants', TenantController::class);
+    Route::any('tenants/search',[ TenantController::class,'search'])->name('tenants.search');
     
     /**
     *   Routes Category
