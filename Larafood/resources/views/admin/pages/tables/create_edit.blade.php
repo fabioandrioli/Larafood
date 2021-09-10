@@ -22,16 +22,12 @@
             @endif
                 @csrf
                 <div class="form-group">
-                    <label>Nome:</label>
-                    <input type="text" name="name" value="{{$table->name ?? old('name')}}" class="form-control" placeholder="Nome:">
-                </div>
-                <div class="form-group">
-                    <label>Preço:</label>
-                    <input type="text" name="price" value="{{$table->price ?? old('price')}}" class="form-control" placeholder="Preço:">
+                    <label>Identificação:</label>
+                    <input type="text" name="identify" value="{{$table->identify ?? old('identify')}}" class="form-control" placeholder="Identify:">
                 </div>
                 <div class="form-group">
                     <label>Descrição:</label>
-                    <input type="description" name="description" value="{{$table->description ?? old('description') }}" class="form-control" placeholder="Descrição:">
+                    <Textarea type="description" name="description" value="{{$table->description ?? old('description') }}" class="form-control" placeholder="Descrição:"></Textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-dark">Enviar</button>

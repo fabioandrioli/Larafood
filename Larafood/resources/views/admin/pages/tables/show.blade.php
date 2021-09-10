@@ -9,7 +9,7 @@
 @section('content')
 @extends('adminlte::page')
 
-@section('title', "Detalhes da Mesa {$table->description}")
+@section('title', "Detalhes da Mesa {$table->identify}")
 
 @section('content_header')
     <h1>Detalhes da Mesa: <b>{{$table->name}}</b></h1>
@@ -21,10 +21,10 @@
         <div class="card-body">
             <ul>
                 <li>
-                    <strong>Descrição: </strong>{{$table->description}}
+                    <strong>Identificação: </strong>{{$table->identify}}
                 </li>
                 <li>
-                    <strong>Identificação: </strong>{{$table->identify}}
+                    <strong>Descrição: </strong>{{$table->description}}
                 </li>
                 <li>
                     <strong>Uuid: </strong>{{$table->uuid}}

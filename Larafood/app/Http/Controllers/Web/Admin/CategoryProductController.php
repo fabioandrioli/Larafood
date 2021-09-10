@@ -69,7 +69,7 @@ class CategoryProductController extends Controller
         }
 
         $category->products()->detach($product);
-        return redirect()->route("categories.products", $category->id);
+        return redirect()->route("categories.products", $category->url);
     }
 
 }

@@ -23,8 +23,10 @@ class RequestStoreUpdateTable extends FormRequest
      */
     public function rules()
     {
+        $id = $this->segment(3);
         return [
-            //
+            "identify" => "required|min:3|max:255",
+            "description" => "min:5|max:255",
         ];
     }
 }
