@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\Admin\{
     ProductController,
     TableController,
     CategoryProductController,
+    TenantController,
 
 };
 
