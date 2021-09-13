@@ -274,6 +274,11 @@ return [
             'url'        => 'admin/tenants',
             'icon'       => 'fa fa-building',
         ],
+        [
+            'text'       => 'Papeis',
+            'url'        => 'admin/roles',
+            'icon'       => 'fa fa-key',
+        ],
         
     ],
 

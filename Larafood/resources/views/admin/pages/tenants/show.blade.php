@@ -3,16 +3,16 @@
 @section('title', 'Produtos')
 
 @section('content_header')
-    <h1>productos <a href="{{route('products.create')}}" class="btn btn-dark">ADD</a> </h1>
+    <h1>Empresa <a href="{{route('tenants.create')}}" class="btn btn-dark">ADD</a> </h1>
 @stop
 
 @section('content')
 @extends('adminlte::page')
 
-@section('title', "Detalhes do Produto {$product->name}")
+@section('title', "Detalhes do Produto {$tenant->name}")
 
 @section('content_header')
-    <h1>Detalhes do produto: <b>{{$product->name}}</b></h1>
+    <h1>Detalhes do empresa: <b>{{$tenant->name}}</b></h1>
 @stop
 
 @section('content')
@@ -21,25 +21,25 @@
         <div class="card-body">
             <ul>
                 <li>
-                    <img width="200px" height="200px" src="{{$product->image}}" alt="{{$product->title}}" class="img-thumbnail">
+                    <img width="200px" height="200px" src="{{$tenant->logo}}" alt="{{$tenant->name}}" class="img-thumbnail">
                 </li>
                 <li>
-                    <strong>Titulo: </strong>{{$product->title}}
+                    <strong>Titulo: </strong>{{$tenant->name}}
                 </li>
                 <li>
-                    <strong>Url: </strong>{{$product->url}}
+                    <strong>Url: </strong>{{$tenant->url}}
                 </li>
                 <li>
-                    <strong>Preço: </strong>R$ {{number_format($product->price, 2, ',','.')}}
+                    <strong>Uuid: </strong>R$ {{$tenant->uuid}}
                 </li>
                 <li>
-                    <strong>Descrição: </strong>{{$product->description}}
+                    <strong>Descrição: </strong>{{$tenant->description}}
                 </li>
             </ul>
-            <form action="{{route('products.destroy',$product->id)}}" method="POST">
+            <form action="{{route('tenants.destroy',$tenant->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">DELETAR O PRODUTO {{$product->name}}</button>
+                <button type="submit" class="btn btn-danger">DELETAR A EMPRESA{{$tenant->name}}</button>
             </form>
         </div>
     </div>

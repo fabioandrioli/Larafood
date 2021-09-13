@@ -15,6 +15,7 @@ use App\Http\Controllers\Web\Admin\{
     TableController,
     CategoryProductController,
     TenantController,
+    RoleController,
 
 };
 
@@ -113,6 +114,27 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     **/
     Route::resource('profiles',ProfileController::class);
     Route::any('profiles/search',[ProfileController::class,'search'])->name('profiles.search');
+
+    /**
+    *   Routes roles
+    **/
+    Route::resource('roles',RoleController::class);
+    Route::any('roles/search',[RoleController::class,'search'])->name('roles.search');
+
+
+     /**
+    *   Routes role_permisions
+    **/
+    Route::get('roles/{id}/permissions',[RolePermissionController::class,'roles'])->name('roles.permissions');
+
+    Route::get('permissions/{id}/roles',[RolePermissionController::class,'permissions'])->name('permissions.roles');
+
+    Route::any('role/{id}/linkNewPermission',[RolePermissionController::class,'linkNewPermission'])->name('roles.linkNewPermission');
+  
+    Route::post('role/{id}/linkNewPermission/store',[RolePermissionController::class,'linkNewPermissionStore'])->name('roles.linkNewPermissionStore');
+
+    Route::get('roles/{id}/permissions/{idPermission}/unbindPermission',[RolePermissionController::class,'unbindPermission'])->name('roles.permissions.unbindPermission');
+
 
     /**
     *   Routes permission
