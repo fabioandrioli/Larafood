@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\TenantService;
+use App\Http\Resources\Tenant\TenantResource;
 
 class TenantApiController extends Controller{
 
@@ -14,6 +15,6 @@ class TenantApiController extends Controller{
     }
 
     public function index(){
-        return  $this->tenantService->getAllTenants();
+        return  TenantResource::collection( $this->tenantService->getAllTenants());
     }
 }
