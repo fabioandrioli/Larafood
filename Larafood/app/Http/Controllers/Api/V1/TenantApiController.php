@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Service\TenantService;
+use App\Services\TenantService;
 
 class TenantApiController extends Controller{
 

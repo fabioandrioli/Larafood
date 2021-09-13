@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
+use App\Models\Tenant;
+use App\Repositories\Contracts\TenantRepositoryInterface;
+
 class TenantRepository implements TenantRepositoryInterface {
 
     protected $entity;
@@ -13,6 +16,6 @@ class TenantRepository implements TenantRepositoryInterface {
 
 
     public function getAllTenants(){
-        return $this->all();
+        return $this->entity->all();
     }
 }

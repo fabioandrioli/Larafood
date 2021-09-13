@@ -15,13 +15,10 @@ use App\Observers\Product\ProductObserver;
 use App\Observers\Table\TableObserver;
 
 
-use App\Repositories\{
-    TenantRepository,
-};
+use App\Repositories\TenantRepository;
 
-use App\Repositories\Category\{
-    TenantRepositoryInterface,
-};
+use App\Repositories\Contracts\TenantRepositoryInterface;
+
 
 class AppServiceProvider extends ServiceProvider
 {

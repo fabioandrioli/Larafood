@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface RepositoryInterface {
+interface TenantRepositoryInterface {
 
     public function getAllTenants();
 }
