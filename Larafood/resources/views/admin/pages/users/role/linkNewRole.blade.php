@@ -10,7 +10,7 @@
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-header">
-            <form class="form form-inline" method="POST" action="{{route('roles.linkNewPermission',$role->id)}}">
+            <form class="form form-inline" method="POST" action="{{route('users.linkNewRole',$user->id)}}">
                 @csrf
                 <input type="text" name="filter" value="{{$filters['filter'] ?? ''}}" placeholder="Nome" class="form-control">
                 <button type="submit" class="btn btn-dark"><i class="fa fa-glass"></i> Filtrar</button>
@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form action="{{route('roles.linkNewPermissionStore',$role->id)}}" method="POST">
+                    <form action="{{route('users.linkNewRoleStore',$user->id)}}" method="POST">
                         @csrf
                         @forelse($roles as $role)
                         <tr>

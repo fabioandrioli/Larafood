@@ -3,7 +3,7 @@
 @section('title', 'Cargo do papel')
 
 @section('content_header')
-    <h1>Vincular novo Cargo no Usuário: {{$user->name}} <a href="{{route('users.linkNewRole',$role->id)}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Vincular novo Cargo no Usuário: {{$user->name}} <a href="{{route('users.linkNewRole',$user->id)}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')
@@ -27,13 +27,13 @@
                 </thead>
                 <tbody>
 
-                    @forelse($users as $role)
+                    @forelse($roles as $role)
                     <tr>
                         <td>{{$role->name}}</td>
                         <td>{{$role->description}}</td>
                     
                         <td style="width=10px">
-                            <a href="{{route('users.users.unbindRole',[$role->id,$role->id])}}" class="btn btn-danger">Desvincular</a>
+                            <a href="{{route('users.roles.unbindRole',[$user->id,$role->id])}}" class="btn btn-danger">Desvincular</a>
                         </td>
                     </tr>
                     @empty
@@ -46,9 +46,9 @@
         </div>
         <div class="card-footer">
             @if(isset($filters))
-                {!! $users->appends($filters)->links("pagination::bootstrap-4") !!}
+                {!! $roles->appends($filters)->links("pagination::bootstrap-4") !!}
              @else
-                {!! $users->links("pagination::bootstrap-4") !!}
+                {!! $roles->links("pagination::bootstrap-4") !!}
             @endif
 
         </div>
