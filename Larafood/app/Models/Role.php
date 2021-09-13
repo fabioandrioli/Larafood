@@ -24,8 +24,8 @@ class Role extends Model
 
     public function permissionsAvailable($filter = null){
         $permissions = Permission::whereNotIn('permissions.id',function($query){
-            $query->select("permission_profile.permission_id");
-            $query->from("role_permission");
+            $query->select("permission_role.permission_id");
+            $query->from("permission_role");
             $query->whereRaw("role_id={$this->id}");
         })
         ->where(function($queryFilter) use ($filter){

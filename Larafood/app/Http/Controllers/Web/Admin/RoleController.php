@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Role\StoreUpdateRoleRequest;
 use App\Models\Role;
+use App\Http\Requests\Role\StoreUpdateRoleRequest;
 
 class RoleController extends Controller
 {
@@ -43,7 +43,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestStoreUpdateRole $request)
+    public function store(StoreUpdateRoleRequest $request)
     {
         $this->repository->create($request->all());
         return redirect()->route('roles.index');
@@ -89,7 +89,7 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestStoreUpdateRole $request,$id)
+    public function update(StoreUpdateRoleRequest $request,$id)
     {
         $role = $this->repository->find($id);
 
