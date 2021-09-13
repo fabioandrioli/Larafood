@@ -17,6 +17,7 @@ use App\Http\Controllers\Web\Admin\{
     TenantController,
     RoleController,
     RolePermissionController,
+    UserRoleController,
 
 };
 
@@ -59,6 +60,19 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
 
     Route::resource('users', UserController::class);
     Route::any('users/search',[ UserController::class,'search'])->name('users.search');
+
+
+      /**
+    *   Routes role_user
+    **/
+
+    Route::get('users/{id}/roles',[UserRoleController::class,'users'])->name('users.roles');
+
+    Route::any('user/{id}/linkNewRole',[UserRoleController::class,'linkNewRole'])->name('users.linkNewRole');
+  
+    Route::post('user/{id}/linkNewRole/store',[UserRoleController::class,'linkNewRoleStore'])->name('users.linkNewRoleStore');
+
+    Route::get('users/{id}/roles/{idRole}/unbindRole',[UserRoleController::class,'unbindRole'])->name('users.roles.unbindRole');
 
 
     /**

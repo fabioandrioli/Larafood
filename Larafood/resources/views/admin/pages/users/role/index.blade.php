@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuários')
+@section('title', 'Cargo do papel')
 
 @section('content_header')
-    <h1>Usuários <a href="{{route('users.create')}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
+    <h1>Vincular novo Cargo no Usuário: {{$user->name}} <a href="{{route('users.linkNewRole',$role->id)}}" class="btn btn-dark"><i class="fa fa-plus-circle"></i></a> </h1>
 @stop
 
 @section('content')
@@ -21,25 +21,24 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>email</th>
+                        <th>Descrição</th>
                         <th width="250">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse($users as $user)
+                    @forelse($users as $role)
                     <tr>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
+                        <td>{{$role->name}}</td>
+                        <td>{{$role->description}}</td>
+                    
                         <td style="width=10px">
-                            <a href="{{route('users.edit',$user->id)}}" class="btn btn-info">Editar</a>
-                            <a href="{{route('users.show',$user->id)}}" class="btn btn-warning">Ver</a>
-                            <a href="{{route('users.roles',$user->id)}}" class="btn btn-primary"><i class="fa fa-key" aria-hidden="true"></i></a>
+                            <a href="{{route('users.users.unbindRole',[$role->id,$role->id])}}" class="btn btn-danger">Desvincular</a>
                         </td>
                     </tr>
                     @empty
                     <tr >
-                        <td> <p>Nenhum usero encontrado.</p></td>
+                        <td> <p>Nenhuma cargo encontrada.</p></td>
                     </tr>
                     @endforelse
                 </tbody>

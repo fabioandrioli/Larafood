@@ -72,4 +72,8 @@ class User extends Authenticatable
                     ->paginate();
     }
 
+    public function roles(){
+        return $this->belongsToMany(Roles::class);
+    }
+
 }
