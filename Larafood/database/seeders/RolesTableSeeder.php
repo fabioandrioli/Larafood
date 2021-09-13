@@ -32,7 +32,7 @@ class RolesTableSeeder extends Seeder
             'name' => 'Atendente',
         ]);
 
-          Role::create([
+        Role::create([
             'name' => 'Caixa',
         ]);
     }
