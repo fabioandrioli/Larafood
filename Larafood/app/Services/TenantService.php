@@ -16,6 +16,11 @@ class TenantService{
         $this->repository = $repository;
     }
 
+
+    public function getAllTenants(){
+        return $this->repository->getAllTenants();
+    }
+
     public function make(Plan $plan, array $data){
         $this->plan = $plan;
         $this->data = $data;
