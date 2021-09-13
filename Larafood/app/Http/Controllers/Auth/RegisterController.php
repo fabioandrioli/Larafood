@@ -80,6 +80,8 @@ class RegisterController extends Controller
 
         
         $tenantService = app(TenantService::class);
-        return $tenantService->make($plan,$data);
+        $user = $tenantService->make($plan,$data);
+        event(new TenantCreated($user));
+        return $user;
     }
 }

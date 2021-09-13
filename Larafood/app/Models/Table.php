@@ -18,6 +18,10 @@ class Table extends Model
         'description',
     ];
 
+    public function tenant(){
+        return $this->belongsTo(Tenant::class);
+    }
+
     public function search($filter = null){
         return $results = $this
                     ->where('description','LIKE',"%{$filter}%")

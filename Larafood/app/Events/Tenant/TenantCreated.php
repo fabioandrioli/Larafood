@@ -9,19 +9,35 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\{
+    User,
+    Tenant,
+};
 
 class TenantCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    private $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
+    }
+
+
+    public function user(): User {
+        return $this->user;
+    }
+
+
+    public function tenant(): Tenant{
+        return $this->user->tenant;
     }
 
     /**

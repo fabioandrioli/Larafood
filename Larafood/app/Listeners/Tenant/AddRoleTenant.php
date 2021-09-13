@@ -26,6 +26,15 @@ class AddRoleTenant
      */
     public function handle(TenantCreated $event)
     {
-        //
+        //os dois metodos que estão na classe de eventos em Events/Tentant/TenantCreated 
+        $user = $event->user();
+
+        if(!$role = Role::first()){
+            return;
+        }
+
+        $user->roles()->attach($role);
+        return 1;
+
     }
 }

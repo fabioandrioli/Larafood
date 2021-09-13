@@ -16,13 +16,38 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         Permission::create([
-            'name' => 'Editar',
-            'description' => 'Pode editar planos e detalhes do sistema.'
+            'name' => 'Categories',
+            'description' => 'Pode gerenciar categorias'
         ]);
 
         Permission::create([
-            'name' => 'Deletar',
-            'description' => 'Pode deletar planos e detalhes do sistema.'
+            'name' => 'Products',
+            'description' => 'Pode gerenciar produtos'
+        ]);
+
+        Permission::create([
+            'name' => 'Users',
+            'description' => 'Pode gerenciar usuários'
+        ]);
+
+        Permission::create([
+            'name' => 'Table',
+            'description' => 'Pode gerenciar mesas'
+        ]);
+
+        Permission::create([
+            'name' => 'Profile',
+            'description' => 'Pode gerenciar perfis'
+        ]);
+
+        Permission::create([
+            'name' => 'Permission',
+            'description' => 'Pode gerenciar permissões'
+        ]);
+
+        Permission::create([
+            'name' => 'Role',
+            'description' => 'Pode gerenciar cargos'
         ]);
     }
 }
