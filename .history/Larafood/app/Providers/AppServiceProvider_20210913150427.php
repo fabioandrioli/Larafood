@@ -14,12 +14,6 @@ use App\Observers\Category\CategoryObserver;
 use App\Observers\Product\ProductObserver;
 use App\Observers\Table\TableObserver;
 
-
-use App\Repositories\TenantRepository;
-
-use App\Repositories\Contracts\TenantRepositoryInterface;
-
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -30,10 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //bind significa "ligar"
-        $this->app->bind(
-            TenantRepositoryInterface::class,
-            TenantRepository::class,
-        );
+        $this->app->bind();
     }
 
     /**
