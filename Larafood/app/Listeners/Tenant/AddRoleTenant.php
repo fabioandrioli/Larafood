@@ -5,6 +5,7 @@ namespace App\Listeners\Tenant;
 use App\Events\Tenant\TenantCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use App\Models\Role;
 
 class AddRoleTenant
 {

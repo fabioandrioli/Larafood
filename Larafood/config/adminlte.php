@@ -273,11 +273,13 @@ return [
             'text'       => 'Empresas',
             'url'        => 'admin/tenants',
             'icon'       => 'fa fa-building',
+            'can'        =>  'Tenant',
         ],
         [
             'text'       => 'Papeis',
             'url'        => 'admin/roles',
             'icon'       => 'fa fa-key',
+            'can'        =>  'Role',
         ],
         
     ],

@@ -46,6 +46,11 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         Permission::create([
+            'name' => 'Tenant',
+            'description' => 'Pode gerenciar empresas'
+        ]);
+
+        Permission::create([
             'name' => 'Role',
             'description' => 'Pode gerenciar cargos'
         ]);
