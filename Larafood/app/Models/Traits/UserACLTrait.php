@@ -1,12 +1,31 @@
 <?php
 
 namespace App\Models\Traits;
+use App\Models\Tenant;
 
 trait UserACLTrait{
+
+
+    public function permissions(): array{
+        $permissionsPlan = $this->permissionsPlan();
+        $permissionsRole = $this->permissionsRole();
+
+        $permissions = [];
+        foreach($permissionsRole as $permissionRole){
+            if(in_array($permissionRole,$permissionsPlan)){
+                array_push($permissions,$permissionRole);
+            }
+        }
+        
+        return $permissions;
+    }
     
-    public function permissions(){
-        $tenant = $this->tenant()->first();
-        $plan =  $tenant->plan;
+    public function permissionsPlan(): array{
+        // $tenant = $this->tenant()->first();
+        // $plan =  $tenant->plan;
+        // $profiles = $plan->profiles;
+        $tenant = Tenant::with('plan.profiles.permissions')->where('id',$this->tenant_id)->first();
+        $plan = $tenant->plan;
         $profiles = $plan->profiles;
 
         $permissions = [];
@@ -16,6 +35,15 @@ trait UserACLTrait{
             }
         }
         return  $permissions;
+    }
+
+    public function permissionsRole(): array {
+        $roles = $this->roles()->with('permissions')->get();
+        $permissions = [];
+        foreach ($roles->permissions as $permission) {
+            array_push($permissions,$permission->name);
+        }
+        return $permissions;
     }
 
     public function hasPermission(string $permissionName): bool{
