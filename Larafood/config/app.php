@@ -177,6 +177,9 @@ return [
 
         //Laravel DebugBar
         Barryvdh\Debugbar\ServiceProvider::class,
+
+        App\Providers\RepositoryServiceProvider::class,
+        
     ],
 
     /*
