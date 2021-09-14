@@ -178,6 +178,8 @@ return [
         //Laravel DebugBar
         Barryvdh\Debugbar\ServiceProvider::class,
 
+
+        //Provider criado por mim.
         App\Providers\RepositoryServiceProvider::class,
         
     ],
