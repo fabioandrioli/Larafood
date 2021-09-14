@@ -37,9 +37,6 @@ class TableRepository implements TableRepositoryInterface {
         ->first();
     }
 
-    public function getProductByFlag($flag){
-        
-    }
 
    
 }
