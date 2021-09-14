@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Repositories\Contracts\CategoryRepositoryInterface;
+
+
+class CategoryRepository implements CategoryRepositoryInterface {
+
+    protected $table;
+
+
+    public function __construct(){
+        $this->table = 'categories';
+    }
+
+
+    public function getCategoryByTenantUuid(string $uuid){
+        return $this->table->join('tenants','tenants.id','=','categories.id')
+                            ->where('tenants.uuid',$uuid)
+                            ->select('categories.*')
+                            ->get();
+    }
+
+    public function getCategoryByTenantId(int $idTenant){
+        return $this->table->where('tenant_id',$idTenant)->get();
+    }
+
+   
+}
