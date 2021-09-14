@@ -21,4 +21,14 @@ class CategoryApiController extends Controller
         return  CategoryResource::collection($categories);
      
     }
+
+    
+    public function show(CategoryApiRequest $request,$url){
+        if(!$category = $this->categoryService->getCategoryByUrl($url)){
+            return response()->json(['message' => 'Category Not found'], 404);
+        }
+          
+        return  new CategoryResource($category);
+     
+    }
 }

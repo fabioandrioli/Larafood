@@ -26,7 +26,7 @@ class CategoryService{
         return $this->categoryRepository->getCategoryByTenantId($tenant->id);
     }
 
-    public function getCategoryByTenantId(int $idTenant){
-        return $this->entity->where('tenant_id',$idTenant)->get();
+    public function getCategoryByUrl(string $url){
+        return $this->categoryRepository->getCategoryByUrl($url);
     }
 }
