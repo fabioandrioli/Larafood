@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\V1\{
     ProductApiController,
 };
 
-Route::group(['prefix' => 'v1'], function(){
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
 
     Route::get('/tenants',[ TenantApiController::class,'index']);
 
