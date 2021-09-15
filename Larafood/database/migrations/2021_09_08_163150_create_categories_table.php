@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->foreignIdFor(Tenant::class);
             $table->string('name')->unique();
             $table->string('url')->unique();
+            $table->uuid('uuid');
             $table->text('description');
             $table->timestamps();
         });

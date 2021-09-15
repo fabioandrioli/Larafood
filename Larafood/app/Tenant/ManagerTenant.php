@@ -2,13 +2,15 @@
 
 namespace App\Tenant;
 use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class ManagerTenant{
     private $user;
 
     public function __construct(){
-        $this->user = Auth::user();
+       // $this->user = Auth::user();
+       $this->user = User::find(1);
     }
 
     public function getTenantIdentify():int{

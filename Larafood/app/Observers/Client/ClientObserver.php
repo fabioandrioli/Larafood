@@ -2,6 +2,7 @@
 
 namespace App\Observers\Client;
 use App\Models\Client;
+use Illuminate\Support\Str;
 
 class ClientObserver
 {
@@ -13,6 +14,7 @@ class ClientObserver
      */
     public function creating(Client $client)
     {
+        $category->uuid = Str::uuid();
         $client->password = bcrypt($client->password);
     }
 
