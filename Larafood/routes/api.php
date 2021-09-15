@@ -9,6 +9,10 @@ use App\Http\Controllers\Api\V1\{
     ProductApiController,
 };
 
+use App\Http\Controllers\Api\V1\Auth\{
+    RegisterApiController,
+};
+
 Route::group(['prefix' => 'v1'], function(){
 
     Route::get('/tenants',[ TenantApiController::class,'index']);
@@ -23,6 +27,7 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::get('/categories/{url}',[ CategoryApiController::class,'show']);
 
+    //Table
 
     Route::get('/tables',[TableApiController::class,'getTablesByTenant']);
 
@@ -31,6 +36,11 @@ Route::group(['prefix' => 'v1'], function(){
     Route::get('/products',[ProductApiController::class,'productsByTenant']);
 
     Route::get('/products/{flag}',[ProductApiController::class,'show']);
+
+    //Clients
+    Route::get('/clients/store',[RegisterApiController::class,'store']);
+
+    
 
     Route::middleware('auth:api')->get('/user', function (Request $request) {
         return $request->user();
