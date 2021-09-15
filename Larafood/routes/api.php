@@ -38,7 +38,7 @@ Route::group(['prefix' => 'v1'], function(){
     Route::get('/products/{flag}',[ProductApiController::class,'show']);
 
     //Clients
-    Route::get('/clients/store',[RegisterApiController::class,'store']);
+    Route::post('/clients/store',[RegisterApiController::class,'store']);
 
     
 
