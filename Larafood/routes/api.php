@@ -50,13 +50,13 @@ Route::group(['prefix' => 'v1'], function(){
         //o teste no postman foi assim com requisção GET.
         //http://127.0.0.1:8000/api/categories/pizzarias/?token_company=d3c2aa22-f597-4743-b8f3-7eeb1267ffc8
 
-        Route::get('/categories/{url}',[ CategoryApiController::class,'show']);
+        Route::get('/categories/{identify}',[ CategoryApiController::class,'show']);
 
         //Table
 
         Route::get('/tables',[TableApiController::class,'getTablesByTenant']);
 
-        Route::get('/tables/{token_company}',[TableApiController::class,'show']);
+        Route::get('/tables/{identify}',[TableApiController::class,'show']);
 
         Route::get('/products',[ProductApiController::class,'productsByTenant']);
 

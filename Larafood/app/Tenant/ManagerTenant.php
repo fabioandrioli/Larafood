@@ -13,12 +13,12 @@ class ManagerTenant{
        $this->user = User::find(1);
     }
 
-    public function getTenantIdentify():int{
-        return $this->user->tenant_id;
+    public function getTenantIdentify(){
+        return Auth::check() ? $this->user->tenant_id : '';
     }
 
-    public function getTenant(): Tenant {
-        return  $this->user->tenant;
+    public function getTenant(){
+        return  Auth::check() ? $this->user->tenant : '';
     }
 
     public function isAdmin():bool {

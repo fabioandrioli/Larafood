@@ -24,7 +24,7 @@ class TableApiController extends Controller
 
     
     public function show(TableApiRequest $request,$identify){
-        if(!$table = $this->tableService->getTableByIdentify($identify)){
+        if(!$table = $this->tableService->getTableByUuid($identify)){
             return response()->json(['message' => 'Table Not found'], 404);
         }
           

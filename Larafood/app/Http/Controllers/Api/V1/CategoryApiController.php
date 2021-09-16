@@ -23,8 +23,8 @@ class CategoryApiController extends Controller
     }
 
     
-    public function show(CategoryApiRequest $request,$url){
-        if(!$category = $this->categoryService->getCategoryByUrl($url)){
+    public function show(CategoryApiRequest $request,$identify){
+        if(!$category = $this->categoryService->getCategoryByUuid($identify)){
             return response()->json(['message' => 'Category Not found'], 404);
         }
           

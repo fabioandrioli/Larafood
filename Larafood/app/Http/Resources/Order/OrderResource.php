@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Table;
+namespace App\Http\Resources\Order;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TableResource extends JsonResource
+class OrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,9 +14,6 @@ class TableResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'identify' => $this->uuid,
-            'descricao' => $this->description,
-        ];
+        return parent::toArray($request);
     }
 }
