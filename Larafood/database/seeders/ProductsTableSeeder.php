@@ -19,17 +19,21 @@ class ProductsTableSeeder extends Seeder
     {
         $tenant = Tenant::first();
         $tenant->products()->create([
-            'name' => 'Lanche grandão',
-            'url' => 'Humburgue',
+            'title' => 'Lanche grandão',
+            "price" => 30.0,
+            'flag' => 'lanche-grandão',
             'description' => 'Lanche',
             'tenant_id' => 1,
+            'image' => "vazio",
         ]);
 
         $tenant->products()->create([
-            'name' => 'Lanche Arregado',
-            'url' => 'Humburgue',
+            'title' => 'Lanche Arregado',
+            "price" => 50.0,
+            'flag' => 'lanche-arregado',
             'description' => 'Lanche',
             'tenant_id' => 1,
+            'image' => "vazio",
         ]);
     }
 }
