@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\{
     CategoryApiController,
     TableApiController,
     ProductApiController,
+    OrderApiController,
 };
 
 use App\Http\Controllers\Api\V1\Auth\{
@@ -63,7 +64,9 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/products/{identify}',[ProductApiController::class,'show']);
 
         //Pedidos ================================================
-        
+        Route::post('/orders/store',[OrderApiController::class,'store']);
+
+        Route::get('/orders/{identify}',[OrderApiController::class,'show']);
 
     // });
 

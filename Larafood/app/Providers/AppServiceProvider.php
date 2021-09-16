@@ -52,7 +52,5 @@ class AppServiceProvider extends ServiceProvider
 
         //API
         Client::observe(ClientObserver::class);
-        Order::observe(OrderObserver::class);
-        Evaluation::observe(EvaluationObserver::class);
     }
 }

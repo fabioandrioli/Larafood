@@ -13,7 +13,7 @@ class RequestStoreOrder extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class RequestStoreOrder extends FormRequest
     public function rules()
     {
         return [
-            //
+            'token_company' => [
+                'required',
+                'exists:tenants,uuid'
+            ],
+            'table' => [
+                'nullable',
+                'exists:tables,uuid',
+            ],
+            'comment' => [
+                'nullable',
+                'max:1000',
+            ],
+            'products' => ['required'],
+            'products.*.identify' => ['required', 'exists:products,uuid'], //o asteriscto diz que é um array e detnro deste array ele esta pegando elemento indentify
+            'products.*.qty' => ['required', 'integer'],
         ];
     }
 }
