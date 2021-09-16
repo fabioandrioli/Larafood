@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Table;
 use App\Models\Client;
 use App\Models\Order;
+use App\Models\Evaluation;
 
 use Illuminate\Support\ServiceProvider;
 use App\Observers\Plan\PlanObserver;
@@ -18,6 +19,7 @@ use App\Observers\Product\ProductObserver;
 use App\Observers\Table\TableObserver;
 use App\Observers\Client\ClientObserver;
 use App\Observers\Order\OrderObserver;
+use App\Observers\Evaluation\EvaluationObserver;
 
 
 
@@ -51,5 +53,6 @@ class AppServiceProvider extends ServiceProvider
         //API
         Client::observe(ClientObserver::class);
         Order::observe(OrderObserver::class);
+        Evaluation::observe(EvaluationObserver::class);
     }
 }
