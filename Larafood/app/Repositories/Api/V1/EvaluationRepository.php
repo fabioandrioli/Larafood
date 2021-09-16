@@ -8,24 +8,47 @@ use App\Models\Evaluation;
 
 class EvaluationRepository implements EvaluationRepositoryInterface {
 
-    private $evaluation;
+    protected $entity;
 
+    public function __construct(Evaluation $evaluation)
+    {
+        $this->entity = $evaluation;
+    }
 
-    public function __construct(Evaluation $evaluation){
-        $this->evaluation = $evaluation;
+    public function newEvaluationOrder(int $idOrder, int $idClient, array $evaluation)
+    {
+        $data = [
+            'client_id' => $idClient,
+            'order_id' => $idOrder,
+            'stars' => $evaluation['stars'],
+            'comment' => isset($evaluation['comment']) ? $evaluation['comment'] : '',
+        ];
+
+        return $this->entity->create($data);
+    }
+
+    public function getEvaluationsByOrder(int $idOrder)
+    {
+        return $this->entity->where('order_id', $idOrder)->get();
     }
 
 
-    public function createNewEvaluation(array $data){
-        return $this->evaluation->create($data);
+    public function getEvaluationsByClient(int $idClient)
+    {
+        return $this->entity->where('client_id', $idClient)->get();
     }
 
-    public function getEvaluation(int $id){
-        return $this->evaluation->find($id);
+    public function getEvaluationsById(int $id)
+    {
+        return $this->entity->find($id);
     }
 
-    public function getEvaluationByEmail(string $email){
-        return $this->evaluation->where("email",$email)->first();
+    public function getEvaluationsByClientIdByOrderId(int $idOrder, int $idClient)
+    {
+        return $this->entity
+                    ->where('client_id', $idClient)
+                    ->where('order_id', $idOrder)
+                    ->first();
     }
 
 }

@@ -62,6 +62,9 @@ Route::group(['prefix' => 'v1'], function(){
 
         Route::get('/products/{identify}',[ProductApiController::class,'show']);
 
+        //Pedidos ================================================
+        
+
     // });
 
     

@@ -8,24 +8,80 @@ use App\Models\Order;
 
 class OrderRepository implements OrderRepositoryInterface {
 
-    private $order;
+    protected $entity;
 
+    public function __construct(Order $order)
+    {
+        $this->entity = $order;
+    }
 
-    public function __construct(Order $order){
-        $this->order = $order;
+    public function createNewOrder(
+        string $identify,
+        float $total,
+        string $status,
+        int $tenantId,
+        string $comment = '',
+        $clientId = '',
+        $tableId = ''
+    ) {
+        $data = [
+            'tenant_id' => $tenantId,
+            'identify' => $identify,
+            'total' => $total,
+            'status' => $status,
+            'comment' => $comment,
+        ];
+
+        if ($clientId) $data['client_id'] = $clientId;
+        if ($tableId) $data['table_id'] = $tableId;
+
+        $order = $this->entity->create($data);
+
+        return $order;
     }
 
 
-    public function createNewOrder(array $data){
-        return $this->order->create($data);
+    public function getOrderByIdentify(string $identify)
+    {
+        return $this->entity
+                        ->where('identify', $identify)
+                        ->first();
     }
 
-    public function getOrder(int $id){
-        return $this->order->find($id);
+    public function registerProductsOrder(int $orderId, array $products)
+    {
+        $order = $this->entity->find($orderId);
+
+        $orderProducts = [];
+
+        foreach ($products as $product) {
+            $orderProducts[$product['id']] = [
+                'qty' => $product['qty'],
+                'price' => $product['price'],
+            ];
+        }
+
+        $order->products()->attach($orderProducts);
+
+        // foreach ($products as $product) {
+        //     array_push($orderProducts, [
+        //         'order_id' => $orderId,
+        //         'product_id' => $product['id'],
+        //         'qty' => $product['qty'],
+        //         'price' => $product['price'],
+        //     ]);
+        // }
+
+        // DB::table('order_product')->insert($orderProducts);
     }
 
-    public function getOrderByEmail(string $email){
-        return $this->order->where("email",$email)->first();
+    public function getOrdersByClientId(int $idClient)
+    {
+        $orders = $this->entity
+                            ->where('client_id', $idClient)
+                            ->paginate();
+
+        return $orders;
     }
 
 }

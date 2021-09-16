@@ -4,7 +4,9 @@ namespace App\Repositories\Contracts\Api\V1;
 
 interface EvaluationRepositoryInterface {
 
-    public function createNewEvaluation(array $data);
-    public function getEvaluation(int $id);
-    public function getEvaluationByEmail(string $email);
+    public function newEvaluationOrder(int $idOrder, int $idClient, array $evaluation);
+    public function getEvaluationsByOrder(int $idOrder);
+    public function getEvaluationsByClient(int $idClient);
+    public function getEvaluationsById(int $id);
+    public function getEvaluationsByClientIdByOrderId(int $idOrder, int $idClient);
 }
