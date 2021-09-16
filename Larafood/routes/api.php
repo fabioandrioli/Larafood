@@ -20,6 +20,9 @@ use App\Http\Controllers\Api\V1\Auth\{
 
 Route::group(['prefix' => 'v1'], function(){
 
+    
+    //Clients
+    Route::post('/clients/store',[RegisterApiController::class,'store']);
 
     Route::post('/sanctum/token',[AuthApiController::class,'auth']);
     
@@ -57,10 +60,8 @@ Route::group(['prefix' => 'v1'], function(){
 
         Route::get('/products',[ProductApiController::class,'productsByTenant']);
 
-        Route::get('/products/{flag}',[ProductApiController::class,'show']);
+        Route::get('/products/{identify}',[ProductApiController::class,'show']);
 
-        //Clients
-        Route::post('/clients/store',[RegisterApiController::class,'store']);
     });
 
     

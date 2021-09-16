@@ -14,7 +14,7 @@ class ClientObserver
      */
     public function creating(Client $client)
     {
-        $category->uuid = Str::uuid();
+        $client->uuid = Str::uuid();
         $client->password = bcrypt($client->password);
     }
 

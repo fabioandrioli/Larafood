@@ -25,8 +25,8 @@ class ProductApiController extends Controller
    }
 
 
-   public function show(CategoryApiRequest $request, $flag){
-    if(!$product = $this->productService->getProductByFlag($flag)){
+   public function show(CategoryApiRequest $request, $identify){
+    if(!$product = $this->productService-> getProductByUuid($identify)){
         return response()->json(['message' => 'Product Not found'], 404);
     }
       
