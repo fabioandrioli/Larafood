@@ -21,6 +21,7 @@ class ProductApiController extends Controller
             $request->token_company,
             $request->get('categories',[]),
         );
+       
         return ProductResource::collection($products);
    }
 

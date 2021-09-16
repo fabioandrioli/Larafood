@@ -32,11 +32,11 @@ Route::group(['prefix' => 'v1'], function(){
 
 
      //autenticação
-    Route::group(['middleware' => ['auth:sanctum']], function(){
-         //autenticação
-        Route::get('/auth/me',[AuthApiController::class,'me']);
+    // Route::group(['middleware' => ['auth:sanctum']], function(){
+    //      //autenticação
+    //     Route::get('/auth/me',[AuthApiController::class,'me']);
 
-        Route::post('/auth/logout',[AuthApiController::class,'logout']);
+    //     Route::post('/auth/logout',[AuthApiController::class,'logout']);
 
 
 
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'v1'], function(){
 
         Route::get('/products/{identify}',[ProductApiController::class,'show']);
 
-    });
+    // });
 
     
 

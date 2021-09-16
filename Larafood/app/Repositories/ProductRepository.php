@@ -26,6 +26,8 @@ class ProductRepository implements ProductRepositoryInterface {
                             if($categories != [])
                                 $query->whereIn('categories.uuid',$categories);
                         })
+                        //->select("products.*",'catgories.uuid as uuid_cat') // renomeando para pegar uuid de categoria sem conflitar com uuid de produtos
+                        ->select("products.*")
                         ->get();
     }
 
