@@ -17,7 +17,9 @@ use App\Http\Controllers\Api\V1\Auth\{
 
 // use App\Models\Client;
 
-
+Route::get('/',function(){
+    return response()->json(200);
+});
 
 Route::group(['prefix' => 'v1'], function(){
 
@@ -40,7 +42,7 @@ Route::group(['prefix' => 'v1'], function(){
     //     Route::post('/auth/logout',[AuthApiController::class,'logout']);
 
 
-
+        
         Route::get('/tenants',[ TenantApiController::class,'index']);
 
         Route::get('/tenants/{uuid}',[ TenantApiController::class,'show']);
