@@ -67,6 +67,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/orders/store',[OrderApiController::class,'store']);
 
         Route::get('/orders/{identify}',[OrderApiController::class,'show']);
+        Route::get('/orders/myOrders/{identify}',[OrderApiController::class,'myOrders']);
 
     // });
 
