@@ -23,7 +23,7 @@ class PlanFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->word,
-            'pricel' => 89.0,
+            'price' => 89.0,
             'description' => $this->faker->sentence,
         ];
     }
