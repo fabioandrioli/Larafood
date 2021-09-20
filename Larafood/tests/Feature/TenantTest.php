@@ -20,9 +20,10 @@ class TenantTest extends TestCase
 
         Tenant::factory()->count(10)->create(); //criar 10 tenats
         $response = $this->get('/api/v1/tenants');
-        $response->dump();
+       // $response->dump();
         // $response = $this->getJson('/api/v1/tenants'); para testar formato json
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+                ->assertJsonCount(10,'data');
     }
 }
