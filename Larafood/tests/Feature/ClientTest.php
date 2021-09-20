@@ -31,4 +31,24 @@ class ClientTest extends TestCase
         //     ]
         // ]); Para testar tbm o retorno
     }
+
+
+    public function testSuccessCreateNewClient()
+    {
+        $payload = [
+            'name' => 'Carlos Client',
+            'email' => 'carlos@client.com.br',
+            'password' => '123456',
+        ];
+
+        $response = $this->postJson('/api/v1/clients/store',$payload);
+
+        $response->assertStatus(201)
+                    ->assertExactJson([
+                        'data' => [
+                            'name' => $payload['name'],
+                            'email' => $payload['email'],
+                        ]
+                    ]);
+    }
 }
