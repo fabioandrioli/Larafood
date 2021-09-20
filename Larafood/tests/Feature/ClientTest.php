@@ -21,7 +21,7 @@ class ClientTest extends TestCase
         ];
 
         $response = $this->postJson('/api/v1/clients/store',$payload);
-        $response->dump();
+       // $response->dump();
 
         $response->assertStatus(422);
         // ->assertExactJson([
