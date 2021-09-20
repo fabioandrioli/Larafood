@@ -13,7 +13,7 @@ class ClientTest extends TestCase
      *
      * @return void
      */
-    public function test_register_client()
+    public function test_error_register_client()
     {
 
         $payload = [

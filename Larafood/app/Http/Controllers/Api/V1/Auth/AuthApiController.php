@@ -27,7 +27,7 @@ class AuthApiController extends Controller
         $client = $this->clientService->getClientByEmail($request->email);
 
         if(!$client || !Hash::check($request->password, $client->password) ){
-            return response()->json(['message' => 'Client Not Found or Invalid Credencials']);
+            return response()->json(['message' => trans('messages.invalid_credentials')],404);
         }
 
         $token = $client->createToken($request->device_name)->plainTextToken;
