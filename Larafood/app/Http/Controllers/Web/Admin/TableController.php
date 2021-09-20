@@ -112,6 +112,21 @@ class TableController extends Controller
         return view('admin.pages.tables.index',compact('tables','filters'));
     }
 
+    public function qrcode($identify)
+    {
+        if (!$table = $this->repository->where('identify', $identify)->first()) {
+            return redirect()->back();
+        }
+
+        //https://github.com/SimpleSoftwareIO/simple-qrcode
+
+        $tenant = auth()->user()->tenant;
+
+        $uri = env('URI_CLIENT') . "/{$tenant->uuid}/{$table->uuid}";
+
+        return view('admin.pages.tables.qrcode', compact('uri'));
+    }
+
 
     /**
      * Remove the specified resource from storage.

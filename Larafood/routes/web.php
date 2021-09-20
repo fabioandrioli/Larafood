@@ -111,6 +111,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     *   Routes Table
     **/
     Route::resource('tables', TableController::class);
+    Route::get('tables/qrcode/{identify}', 'TableController@qrcode')->name('tables.qrcode');
     Route::any('tables/search',[ TableController::class,'search'])->name('tables.search');
 
     /**
