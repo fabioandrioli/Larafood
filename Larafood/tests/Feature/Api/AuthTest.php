@@ -59,7 +59,7 @@ class AuthTest extends TestCase
       
 
         $response = $this->getJson('/api/v1/auth/me');
-        $response->dump();
+        
         $response->assertStatus(401);
     }
 
@@ -73,7 +73,21 @@ class AuthTest extends TestCase
         $response = $this->getJson('/api/v1/auth/me',[
             "Authorization" => "Bearer {$token}",
         ]);
-        $response->dump();
         $response->assertStatus(200);
+    }
+
+    public function test_auth_logout()
+    {
+        $client = Client::factory()->create();
+
+        $token = $client->createToken(Str::random(10))->plainTextToken;
+
+        $response = $this->postJson('/api/v1/auth/logout',[],[
+            "Authorization" => "Bearer {$token}",
+        ]); // Segundo parametros são os posts, terceiro são os headers
+
+        $response->dump();
+        $response->assertStatus(204);
+      
     }
 }
