@@ -26,4 +26,23 @@ class TenantTest extends TestCase
         $response->assertStatus(200)
                 ->assertJsonCount(10,'data');
     }
+
+
+    public function test_error_get_tenant(){
+        $tenant = Tenant::factory()->create();
+
+        $response = $this->get("/api/v1/tenants/{$tenant->uuid}");
+
+        $response->assertStatus(200);
+
+    }
+
+    public function test_by_identify(){
+        $tenant = "fake_value";
+
+        $response = $this->get("/api/v1/tenants/{$tenant}");
+
+        $response->assertStatus(404);
+
+    }
 }
