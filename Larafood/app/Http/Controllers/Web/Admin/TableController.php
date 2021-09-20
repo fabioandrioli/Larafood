@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Table;
 use App\Http\Requests\Table\RequestStoreUpdateTable;
+use Illuminate\Support\Facades\Auth;
 
 class TableController extends Controller
 {
@@ -120,7 +121,7 @@ class TableController extends Controller
 
         //https://github.com/SimpleSoftwareIO/simple-qrcode
 
-        $tenant = auth()->user()->tenant;
+        $tenant = Auth::user()->tenant;
 
         $uri = env('URI_CLIENT') . "/{$tenant->uuid}/{$table->uuid}";
 
