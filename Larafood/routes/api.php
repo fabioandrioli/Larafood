@@ -29,9 +29,9 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::post('/sanctum/token',[AuthApiController::class,'auth']);
     
-    // Route::group(['middleware' => ['auth:sanctum']], function(){
-    //     Route::get('/auth/me',[AuthApiController::class,'me']);
-    // });
+    Route::group(['middleware' => ['auth:sanctum']], function(){
+        Route::get('/auth/me',[AuthApiController::class,'me']);
+    });
 
 
      //autenticação
