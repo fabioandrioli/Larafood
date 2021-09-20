@@ -27,7 +27,7 @@ class OrderTest extends TestCase
 
         $response->assertStatus(422)
                     ->assertJsonPath('errors.token_company', [
-                        trans('validation.required', ['attribute' => 'token company'])
+                        trans('validation.required', ['attribute' => 'token company']) //não pode passar com underline
                     ])
                     ->assertJsonPath('errors.products', [
                         trans('validation.required', ['attribute' => 'products'])
